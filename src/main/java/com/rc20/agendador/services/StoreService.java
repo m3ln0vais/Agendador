@@ -32,4 +32,8 @@ public class StoreService {
     public void deleteById(Long id){
         storeRepository.deleteById(id);
     }
+
+//    public void findByLogin(String user, String pass) {
+//        storeRepository.findBy
+//    }
 }

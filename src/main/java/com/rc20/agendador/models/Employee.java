@@ -5,6 +5,7 @@
 package com.rc20.agendador.models;
 
 import com.rc20.agendador.enuns.EmployeeStatus;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,11 +30,11 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Person person;
-    @OneToMany
-    private List<Service> services;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Work> works;
+    @OneToMany(cascade = CascadeType.ALL)
     private List<DayWeek> daysWeek;
     @Enumerated(value = EnumType.STRING)
     private EmployeeStatus status;

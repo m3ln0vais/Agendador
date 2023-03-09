@@ -1,5 +1,6 @@
 package com.rc20.agendador.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,9 +23,9 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Contact contact;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
     private LocalDate birthday;
 }

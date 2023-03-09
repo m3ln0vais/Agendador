@@ -28,12 +28,6 @@
     <!-- Template Main CSS File -->
     <link th:href="@{/css/styleee.css}" rel="stylesheet">
 
-    <!-- =======================================================
-    * Template Name: NiceAdmin - v2.5.0
-    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
 </head>
 
 <div th:fragment="scripts">
@@ -49,4 +43,16 @@
 
     <!-- Template Main JS File -->
     <script th:src="@{/js/main.js}"></script>
+    <script>
+        var theme = localStorage.getItem('theme');
+        const headElement  = document.getElementsByTagName('head')[0];
+
+        const link  = document.createElement('link');
+
+        link.rel  = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/css/themes/'+ theme +'.css';
+
+        headElement.appendChild(link);
+    </script>
 </div>

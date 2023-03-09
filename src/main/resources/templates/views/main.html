@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-
-    <head th:replace="~{fragments/imports :: head('Pagina Inicial')}"></head>
-
-    <body>
-        <!-- ======= Header ======= -->
-        <header th:replace="~{fragments/header}"></header>
-
-        <!-- ======= Sidebar ======= -->
-        <aside th:replace="~{fragments/sidebar}"></aside>
-
+<div th:replace="~{fragments/headers}"></div>
         <!-- ====== Main ====== -->
         <main id="main" class="main">
             <section class="section ">
@@ -17,11 +6,4 @@
             </section>
 
         </main><!-- End #main -->
-        <!-- ======= Footer ======= -->
-        <footer th:replace="~{fragments/footer}"></footer>
-
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-        <div th:replace="~{fragments/imports :: scripts}"></div>
-    </body>
-</html>
+<div th:replace="~{fragments/footers}"></div> 

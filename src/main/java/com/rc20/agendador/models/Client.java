@@ -25,5 +25,5 @@ public class Client {
     private Person person;
     private LocalDateTime lastSchedule;
     @OneToOne
-    private Service lastService;
+    private Work lastWork;
 }

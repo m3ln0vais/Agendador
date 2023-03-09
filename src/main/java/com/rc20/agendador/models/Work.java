@@ -12,10 +12,11 @@ import lombok.Setter;
  *
  * @author Desenv. 02
  */
+
 @Getter
 @Setter
 @Entity
-public class Service {
+public class Work {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

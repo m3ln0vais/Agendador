@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-
-    <head th:replace="~{fragments/imports :: head('Cadastro de Loja')}"></head>
-
-    <body>
-        <!-- ======= Header ======= -->
-        <header th:replace="~{fragments/header}"></header>
-
-        <!-- ======= Sidebar ======= -->
-        <aside th:replace="~{fragments/sidebar}"></aside>
+<div th:replace="~{fragments/headers}"></div>
 
         <!-- ====== Main ====== -->
         <main id="main" class="main">
@@ -25,25 +15,25 @@
 
             <section class="section ">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body pt-4">
 
                         <!-- Custom Styled Validation -->
                         <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/store}"
                               th:object="${store}">
                             <input type="hidden" th:field="*{id}">
-                            <div class="col-md-4">
-                                <label class="form-label">Nome</label>
+                            <div class="col-md-5">
+                                <label class="form-label">Nome da Empresa</label>
                                 <input type="text" class="form-control" required
-                                       th:field="*{name}">
-                                <div class="invalid-feedback"></div>
+                                       th:field="*{name}" th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
+                                <div class="text-danger"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <input type="hidden" th:field="*{contact.id}">
 
                                 <label class="form-label">Telefone</label>
                                 <input type="number" class="form-control" required
                                        th:field="*{contact.phone}">
-                                <div class="invalid-feedback" th:if="${#fields.hasErrors('contact.phone')}" th:errors="*{contact.phone}"></div>
+                                 <div class="text-danger" th:if="${#fields.hasErrors('contact.phone')}" th:errors="*{contact.phone}"></div>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">Email</label>
@@ -51,41 +41,62 @@
                                        th:field="*{contact.email}">
                                 <div class="invalid-feedback"></div>
                             </div>
-                            <div class="col-md-6">
-                                 <label class="form-label">Endereço</label>
-                                <input type="text" class="form-control" required>
+                            <div class="col-md-2">
+                                <input type="hidden" th:field="*{address.id}">
+                                
+                                 <label class="form-label">CEP</label>
+                                <input type="text" class="form-control" required
+                                       th:field="*{address.cep}">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-3">
-                                <label for="validationCustom04" class="form-label">State</label>
-                                <select class="form-select" id="validationCustom04" required="">
-                                    <option selected="" disabled="" value="">Choose...</option>
-                                    <option>...</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid state.
-                                </div>
+                                 <label class="form-label">Rua</label>
+                                <input type="text" class="form-control" required
+                                       th:field="*{address.road}">
+                                <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-3">
-                                <label for="validationCustom05" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="validationCustom05" required="">
-                                <div class="invalid-feedback">
-                                    Please provide a valid zip.
-                                </div>
+                                 <label class="form-label">Bairro</label>
+                                <input type="text" class="form-control" required
+                                       th:field="*{address.district}">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Estado</label>
+                                <input type="text" class="form-control" required
+                                       th:field="*{address.state}">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-md-2">
+                                 <label class="form-label">Nº</label>
+                                <input type="text" class="form-control" required
+                                       th:field="*{address.number}">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                 <label class="form-label">tema</label>
+                                 <select class="form-select" th:field='*{theme}'>
+                                     <option th:each="t : ${themes}" 
+                                             th:value="${t}" th:text="${t.getDesc}">Barber</option>
+                                 </select>
+
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-md-9">
+                                 <label class="form-label">Logo</label>
+                                <input type="file" class="form-control"
+                                       th:field="*{slogan}">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-md-12">
+                                 <label class="form-label">Slogan</label>
+                                <input type="text" class="form-control" required
+                                       th:field="*{slogan}">
+                                <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
-                                    <label class="form-check-label" for="invalidCheck">
-                                        Agree to terms and conditions
-                                    </label>
-                                    <div class="invalid-feedback">
-                                        You must agree before submitting.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                <button class="btn btn-primary" type="submit">Salvar</button>
                             </div>
                         </form><!-- End Custom Styled Validation -->
 
@@ -94,11 +105,4 @@
             </section>
 
         </main><!-- End #main -->
-        <!-- ======= Footer ======= -->
-        <footer th:replace="~{fragments/footer}"></footer>
-
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-        <div th:replace="~{fragments/imports :: scripts}"></div>
-    </body>
-</html>
+<div th:replace="~{fragments/footers}"></div> 
