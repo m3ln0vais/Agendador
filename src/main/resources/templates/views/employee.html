@@ -19,32 +19,31 @@
 
                 <!-- Custom Styled Validation -->
                 <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/employee}"
-                      th:object="${employee}">
+                    th:object="${employee}">
                     <input type="hidden" th:field="*{id}">
                     <div class="col-md-4">
                         <label class="form-label">Nome do Profissional</label>
-                        <input type="text" class="form-control" required
-                               th:field="*{person.name}" th:classappend="${#fields.hasErrors('person.name')}? 'is-invalid'">
-                        <div class="text-danger"  th:if="${#fields.hasErrors('person.name')}" th:errors="*{person.name}"></div>
+                        <input type="text" class="form-control" required th:field="*{person.name}"
+                            th:classappend="${#fields.hasErrors('person.name')}? 'is-invalid'">
+                        <div class="text-danger" th:if="${#fields.hasErrors('person.name')}" th:errors="*{person.name}">
+                        </div>
                     </div>
                     <div class="col-md-2">
                         <input type="hidden" th:field="*{person.contact.id}">
 
                         <label class="form-label">Telefone</label>
-                        <input type="number" class="form-control" required
-                               th:field="*{person.contact.phone}">
-                        <div class="text-danger" th:if="${#fields.hasErrors('person.contact.phone')}" th:errors="*{person.contact.phone}"></div>
+                        <input type="number" class="form-control" required th:field="*{person.contact.phone}">
+                        <div class="text-danger" th:if="${#fields.hasErrors('person.contact.phone')}"
+                            th:errors="*{person.contact.phone}"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" required
-                               th:field="*{person.contact.id}">
+                        <input type="email" class="form-control" required th:field="*{person.contact.id}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Data de Aniversario</label>
-                        <input type="date" class="form-control"
-                               th:field="*{person.birthday}">
+                        <input type="date" class="form-control" th:field="*{person.birthday}">
                         <div class="invalid-feedback"></div>
                     </div>
 
@@ -52,32 +51,27 @@
                         <input type="hidden" th:field="*{person.address.id}">
 
                         <label class="form-label">CEP</label>
-                        <input type="text" class="form-control" required
-                               th:field="*{person.address.cep}">
+                        <input type="text" class="form-control" required th:field="*{person.address.cep}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Rua</label>
-                        <input type="text" class="form-control" required
-                               th:field="*{person.address.road}">
+                        <input type="text" class="form-control" required th:field="*{person.address.road}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Bairro</label>
-                        <input type="text" class="form-control" required
-                               th:field="*{person.address.district}">
+                        <input type="text" class="form-control" required th:field="*{person.address.district}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Estado</label>
-                        <input type="text" class="form-control" required
-                               th:field="*{person.address.state}">
+                        <input type="text" class="form-control" required th:field="*{person.address.state}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Nº</label>
-                        <input type="text" class="form-control" required
-                               th:field="*{person.address.number}">
+                        <input type="text" class="form-control" required th:field="*{person.address.number}">
                         <div class="invalid-feedback"></div>
                     </div>
 
@@ -93,8 +87,8 @@
                     <div class="col-md-2">
                         <label class="form-label">Status</label>
                         <select class="form-select" th:field='*{status}'>
-                            <option th:each="s : ${employeeStatus}" 
-                                    th:value="${s}" th:text="${s.getStatus}">Ativo</option>
+                            <option th:each="s : ${employeeStatus}" th:value="${s}" th:text="${s.getStatus}">Ativo
+                            </option>
                         </select>
 
                         <div class="invalid-feedback"></div>
@@ -111,4 +105,4 @@
 
 </main><!-- End #main -->
 
-<div th:replace="~{fragments/footers}"></div> 
+<div th:replace="~{fragments/footers}"></div>

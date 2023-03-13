@@ -1,5 +1,6 @@
 package com.rc20.agendador.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
@@ -21,9 +22,10 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Person person;
     private LocalDateTime lastSchedule;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Work lastWork;
+    private String password;
 }
