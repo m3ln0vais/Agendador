@@ -30,6 +30,8 @@ public class WorkController {
 //        model.addAttribute("themes", asList(Themes.values()));
         return "views/work";
     }
+    
+    
 
     @PostMapping
     public String register(Model model, @Valid Work work, BindingResult bindingResult) {

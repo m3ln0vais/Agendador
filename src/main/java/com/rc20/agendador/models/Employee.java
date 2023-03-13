@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.rc20.agendador.models;
 
 import com.rc20.agendador.enuns.EmployeeStatus;
@@ -38,4 +34,7 @@ public class Employee {
     private List<DayWeek> daysWeek;
     @Enumerated(value = EnumType.STRING)
     private EmployeeStatus status;
+    @OneToOne(cascade = CascadeType.ALL)
+    private OfficeHours officeHours;
+    
 }

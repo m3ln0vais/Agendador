@@ -2,9 +2,11 @@ package com.rc20.agendador.controllers;
 
 import com.rc20.agendador.enuns.EmployeeStatus;
 import com.rc20.agendador.models.Employee;
+import com.rc20.agendador.models.Work;
 import com.rc20.agendador.services.EmployeeService;
 import jakarta.validation.Valid;
 import static java.util.Arrays.asList;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +34,7 @@ public class EmployeeController {
         model.addAttribute("employeeStatus", asList(EmployeeStatus.values()));
         return "views/employee";
     }
-
+    
     @PostMapping
     public String register(Model model, @Valid Employee employee, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

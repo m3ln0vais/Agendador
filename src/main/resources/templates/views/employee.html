@@ -56,17 +56,17 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Rua</label>
-                        <input type="text" class="form-control" required th:field="*{person.address.road}">
+                        <input type="text" class="form-control" th:field="*{person.address.road}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Bairro</label>
-                        <input type="text" class="form-control" required th:field="*{person.address.district}">
+                        <input type="text" class="form-control" th:field="*{person.address.district}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Estado</label>
-                        <input type="text" class="form-control" required th:field="*{person.address.state}">
+                        <input type="text" class="form-control" th:field="*{person.address.state}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-2">
@@ -75,21 +75,42 @@
                         <div class="invalid-feedback"></div>
                     </div>
 
-                    <!--                    <div class="col-md-2">
-                                            <input type="hidden" th:field="*{service.id}">
-                    
-                                            <label class="form-label">Serviços</label>
-                                            <input type="number" class="form-control"
-                                                   th:field="*{service.name}">
-                                            <div class="text-danger" th:if="${#fields.hasErrors('service.name')}" th:errors="*{service.name}"></div>
-                                        </div>-->
-
                     <div class="col-md-2">
                         <label class="form-label">Status</label>
-                        <select class="form-select" th:field='*{status}'>
+                        <select class="form-select" required th:field='*{status}'>
                             <option th:each="s : ${employeeStatus}" th:value="${s}" th:text="${s.getStatus}">Ativo
                             </option>
                         </select>
+
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Entrada</label>
+                        <input type="time" class="form-control" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Almoço</label>
+                        <input type="time" class="form-control" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Saida</label>
+                        <input type="time" class="form-control" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Serviços</label>
+                        <div class="list-group">
+                            <label class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value="">
+                                First checkbox
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value="">
+                                Second checkbox
+                            </label>
+                        </div>
 
                         <div class="invalid-feedback"></div>
                     </div>

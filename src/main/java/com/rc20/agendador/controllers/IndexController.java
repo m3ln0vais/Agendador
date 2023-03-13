@@ -3,6 +3,7 @@ package com.rc20.agendador.controllers;
 import com.rc20.agendador.models.Client;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
@@ -15,6 +16,7 @@ public class IndexController {
         return "views/login";
     }
     
+    @PostMapping("/")
     public String login(Client client){
         if(client.getPerson().getContact().getEmail().equals("admin") && 
            client.getPassword().equals("admin")){
