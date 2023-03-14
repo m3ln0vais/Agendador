@@ -24,14 +24,19 @@ public class WorkController {
     private WorkService workService;
 
     @GetMapping
-    public String work(Model model, Optional<Long> id) {
-        model.addAttribute("work", 
-                id.isPresent() ? workService.findById(id.get()).get() : new Work());
-//        model.addAttribute("themes", asList(Themes.values()));
-        return "views/work";
+    public String work(Model model, Optional<Integer> page, Optional<String> q) {
+        model.addAttribute("page", q.isPresent()
+                ? workService.findByName(page.orElse(0), q.orElse(""))
+                : workService.find(page.orElse(0)));
+        return "views/work/work";
     }
-    
-    
+
+    @GetMapping("/form")
+    public String workForm(Model model, Optional<Long> id) {
+        model.addAttribute("work",
+                id.isPresent() ? workService.findById(id.get()).get() : new Work());
+        return "views/work/work-form";
+    }
 
     @PostMapping
     public String register(Model model, @Valid Work work, BindingResult bindingResult) {
@@ -40,9 +45,9 @@ public class WorkController {
             model.addAttribute("work", work);
             return "views/work";
         }
-        
-        Work save = workService.save(work);
 
-        return "redirect:/work?id=" + save.getId();
+        workService.save(work);
+
+        return "redirect:/work";
     }
 }

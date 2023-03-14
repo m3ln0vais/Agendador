@@ -1,0 +1,53 @@
+<div th:replace="~{fragments/headers}"></div>
+
+<main id="main" class="main">
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Serviços</a>
+
+            <ul th:replace="~{fragments/pagination::p(${page}, '/work')}"></ul>
+
+            <form action="/work" class="d-flex" role="search">
+                <div class="input-group">
+                    <input class="form-control" name="q" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                    <a class="btn btn-primary" type="button" th:href="@{/work/form}">Incluir</a>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <span th:if="${page.empty}">nenhuma informação encontrada</span>
+    <table th:unless="${page.empty}" class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th scope="col">Preço de Venda</th>
+                <th scope="col">Preço de Custo</th>
+                <th>Tempo Inicial</th>
+                <th>Intervalo</th>
+                <th>Tempo Final</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p: ${page.content}">
+                <td th:text="${p.name}">Luzes</td>
+                <td th:text="${p.salePrice}"><span>25,00</span></td>
+                <td th:text="${p.costPrice}"><span>15,00</span></td>
+                <td th:text="${p.timeStart}">20 minutos</td>
+                <td th:text="${p.timeInterval}">60 minutos</td>
+                <td th:text="${p.timeFinish}">20 minutos</td>
+                <td>
+                    <div class="btn-group">
+                        <a th:href="${'/work/form?id=' + p.id}" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                        <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</main>
+
+<div th:replace="~{fragments/footers}"></div>

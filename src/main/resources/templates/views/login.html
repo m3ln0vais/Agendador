@@ -28,7 +28,7 @@
 
                                     <form id="login" cla ss="row g-3 needs-validation" novalidate th:action="@{/login}">
 
-                                        <div class="col-12">
+                                        <div class="col-12 py-2">
                                             <label for="email" class="form-label">Email</label>
                                             <div class="input-group has-validation">
                                                 <input type="text" name="username" class="form-control" id="email"
@@ -44,7 +44,7 @@
                                             <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
 
-                                        <div class="col-12">
+                                        <div class="col-12 py-2">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="remember"
                                                     value="true" id="rememberMe">
@@ -55,7 +55,7 @@
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Entrar</button>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 py-2">
                                             <p class="small mb-0">Você ainda não tem uma conta?
                                                 <a th:href="@{/client}">Criar Conta</a>
                                             </p>

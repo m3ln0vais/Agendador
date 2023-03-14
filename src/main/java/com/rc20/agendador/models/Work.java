@@ -22,6 +22,9 @@ public class Work {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private BigDecimal price;
-    private String durationService;
+    private BigDecimal salePrice;
+    private BigDecimal costPrice;
+    private Integer timeStart;
+    private Integer timeInterval;
+    private Integer timeFinish;
 }
