@@ -1,6 +1,6 @@
-<ul class="pagination" th:fragment="p(page, route)">
+<ul class="pagination pagination-sm justify-content-end pagee" th:fragment="p(page, route)">
     <li class="page-item" th:classappend="${page.first} ? 'disabled' : '' ">
-        <a class="page-link" th:href="${route + '?page=0'}">First</a>
+        <a class="page-link" th:href="${route + '?page=0'}"><<</a>
     </li>
     <li class="page-item" th:classappend="${page.first} ? 'disabled' : '' ">
         <a class="page-link" th:href="${route + '?page=' + (page.number - 1)}" th:text="${page.number}">1</a>
@@ -12,6 +12,6 @@
         <a class="page-link" th:href="${route + '?page=' + (page.number + 1)}" th:text="${page.number + 2}">3</a>
     </li>
     <li class="page-item" th:classappend="${page.last} ? 'disabled' : '' ">
-        <a class="page-link" th:href="${route + '?page=' + (page.totalPages - 1)}">Last</a>
+        <a class="page-link" th:href="${route + '?page=' + (page.totalPages - 1)}">>></a>
     </li>
 </ul>

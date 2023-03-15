@@ -31,7 +31,7 @@ public class WorkService {
     public Page<Work> find(Integer page){
         page = Optional.ofNullable(page).orElse(0);
         page = page < 0 ? 0 : page;
-        return workRepository.findAll(PageRequest.of(page, 2));
+        return workRepository.findAll(PageRequest.of(page, 5));
     }
     
     public Page<Work> findByName(Integer page, String name){
