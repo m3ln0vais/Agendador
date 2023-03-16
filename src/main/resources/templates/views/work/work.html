@@ -8,21 +8,22 @@
         <div class="col-md-4">
             <form action="/work" class="d-flex" role="search">
                 <div class="input-group">
-                    <input class="form-control search" name="q" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <input class="form-control search" name="q" type="search" placeholder="Pesquisar"
+                        aria-label="Search">
                     <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
                     <a class="btn btn-primary" type="button" th:href="@{/work/form}">Incluir</a>
                 </div>
             </form>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-md-6 mt-3">
-            <span class="text-muted" style="font-size: 15px !important;" th:text="${page.totalElements + ' Serviços Cadastrados'}">4
-                Registros</span>
+            <span class="text-muted" style="font-size: 15px !important;"
+                th:text="${page.totalElements + ' Serviços Cadastrados'}"></span>
         </div>
         <div class="col-md-6 py-3">
-            <ul th:replace="~{fragments/pagination::p(${page}, '/work')}"></ul>
+            <ul th:replace="~{fragments/pagination::p(${page}, '/work/work')}"></ul>
         </div>
     </div>
 
@@ -44,15 +45,16 @@
                 </thead>
                 <tbody>
                     <tr th:each="p: ${page.content}">
-                        <td th:text="${p.name}">Luzes</td>
-                        <td class="text-center" th:text="${p.salePrice}"><span>25,00</span></td>
-                        <td class="text-center" th:text="${p.costPrice}"><span>15,00</span></td>
-                        <td class="text-center" th:text="${p.timeStart}">20 minutos</td>
-                        <td class="text-center" th:text="${p.timeInterval}">60 minutos</td>
-                        <td class="text-center" th:text="${p.timeFinish}">20 minutos</td>
+                        <td th:text="${p.name}"></td>
+                        <td class="text-center" th:text="${p.salePrice}"></td>
+                        <td class="text-center" th:text="${p.costPrice}"></td>
+                        <td class="text-center" th:text="${p.timeStart}"></td>
+                        <td class="text-center" th:text="${p.timeInterval}"></td>
+                        <td class="text-center" th:text="${p.timeFinish}"></td>
                         <td class="d-flex justify-content-end">
                             <div class="btn-group">
-                                <a th:href="${'/work/form?id=' + p.id}" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                <a th:href="${'/work/form?id=' + p.id}" class="btn btn-warning"><i
+                                        class="fa fa-pencil"></i></a>
                                 <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </div>
                         </td>
@@ -60,7 +62,7 @@
                 </tbody>
             </table>
         </div>
-      </div>
+    </div>
 </main>
 
 <div th:replace="~{fragments/footers}"></div>

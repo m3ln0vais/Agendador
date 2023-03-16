@@ -24,9 +24,6 @@ public class Work {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(min = 3, max = 8, message = "min 3 e max 8")
-    @NotNull(message = "nome não pode ser nulo")
-    @NotBlank(message = "não pode estar branco")   
     private String name;
     private BigDecimal salePrice;
     private BigDecimal costPrice;

@@ -1,5 +1,6 @@
 package com.rc20.agendador.controllers;
 
+import com.rc20.agendador.enuns.DayWeekEnum;
 import com.rc20.agendador.enuns.EmployeeStatus;
 import com.rc20.agendador.models.Employee;
 import com.rc20.agendador.services.EmployeeService;
@@ -38,6 +39,7 @@ public class EmployeeController {
         model.addAttribute("employee",
                 id.isPresent() ? employeeService.findById(id.get()).get() : new Employee());
         model.addAttribute("employeeStatus", asList(EmployeeStatus.values()));
+        model.addAttribute("dayWeekEnum", asList(DayWeekEnum.values()));
         return "views/employee/employee-form";
     }
 

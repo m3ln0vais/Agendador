@@ -39,7 +39,8 @@
                         <!-- <th class="text-center">CEP</th> -->
                         <th class="text-center">Status</th>
                         <th class="text-center">Entrada</th>
-                        <th class="text-center">Almoço</th>
+                        <th class="text-center">Pausa Almoço</th>
+                        <th class="text-center">Retorno Almoço</th>
                         <th class="text-center">Saida</th>
                     </tr>
                 </thead>
@@ -49,9 +50,10 @@
                         <td class="text-center" th:text="${p.person.contact.phone}"></td>
                         <!-- <td class="text-center" th:text="${p.person.address.cep}"></td> -->
                         <td class="text-center" th:text="${p.status}"></td>
-                        <td class="text-center" th:text="${p.officeHours.entryTime}"></td>
-                        <td class="text-center" th:text="${p.officeHours.lunchTime}"></td>
-                        <td class="text-center" th:text="${p.officeHours.departureTime}"></td>
+                        <td class="text-center" th:text="${p.officeHours.startTime}"></td>
+                        <td class="text-center" th:text="${p.officeHours.pauseTime}"></td>
+                        <td class="text-center" th:text="${p.officeHours.returnTime}"></td>
+                        <td class="text-center" th:text="${p.officeHours.endTime}"></td>
                         
                         <td class="d-flex justify-content-end">
                             <div class="btn-group">

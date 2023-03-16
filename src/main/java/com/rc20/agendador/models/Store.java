@@ -1,5 +1,6 @@
 package com.rc20.agendador.models;
 
+import com.rc20.agendador.enuns.DayWeekEnum;
 import com.rc20.agendador.enuns.Themes;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -27,19 +28,22 @@ public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Size(min = 3, max = 8, message = "min 3 e max 8")
     @NotNull(message = "nome não pode ser nulo")
-    @NotBlank(message = "não pode estar branco")   
+    @NotBlank(message = "não pode estar branco")
     private String name;
-    
+
     private String slogan;
     @OneToOne(cascade = CascadeType.ALL)
     private Contact contact;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
-    
+
     @Enumerated(EnumType.STRING)
     private Themes theme;
+
+    @Enumerated(value = EnumType.STRING)
+    private DayWeekEnum dayWeekEnum;
 }

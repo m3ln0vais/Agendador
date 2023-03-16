@@ -32,6 +32,5 @@ public class OfficeHours {
     private LocalTime returnTime;
     @NotNull(message = "nome não pode ser nulo")
     private LocalTime endTime;
-    @Enumerated(value = EnumType.STRING)
-    private DayWeekEnum dayWeekEnum;
+    
 }
