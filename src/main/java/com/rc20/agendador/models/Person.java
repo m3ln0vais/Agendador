@@ -6,6 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +25,9 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Size(min = 3, max = 8, message = "min 3 e max 8")
+    @NotNull(message = "nome não pode ser nulo")
+    @NotBlank(message = "não pode estar branco")   
     private String name;
     @OneToOne(cascade = CascadeType.ALL)
     private Contact contact;

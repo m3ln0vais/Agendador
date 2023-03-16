@@ -24,9 +24,9 @@ public class DayWeek {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private LocalTime startTime;
-    private LocalTime pauseTime;
-    private LocalTime returnTime;
-    private LocalTime endTime;
-    private Integer status;
+//    private LocalTime startTime;
+//    private LocalTime pauseTime;
+//    private LocalTime returnTime;
+//    private LocalTime endTime;
+//    private Integer status;
 }

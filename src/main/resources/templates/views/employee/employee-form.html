@@ -86,17 +86,22 @@
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Entrada</label>
-                        <input type="time" class="form-control" required th:field="*{officeHours.entryTime}">
+                        <input type="time" class="form-control" required th:field="*{officeHours.startTime}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-2">
-                        <label class="form-label">Almoço</label>
-                        <input type="time" class="form-control" required th:field="*{officeHours.lunchTime}">
+                        <label class="form-label">Pausa Almoço</label>
+                        <input type="time" class="form-control" required th:field="*{officeHours.pauseTime}">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Retorno Almoço</label>
+                        <input type="time" class="form-control" required th:field="*{officeHours.returnTime}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Saida</label>
-                        <input type="time" class="form-control" required th:field="*{officeHours.departureTime}">
+                        <input type="time" class="form-control" required th:field="*{officeHours.endTime}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-4">

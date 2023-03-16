@@ -1,6 +1,9 @@
 package com.rc20.agendador.models;
 
+import com.rc20.agendador.enuns.DayWeekEnum;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,9 +25,13 @@ public class OfficeHours {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotNull(message = "nome não pode ser nulo")
-    private LocalTime entryTime; //horário de entrada
+    private LocalTime startTime;
     @NotNull(message = "nome não pode ser nulo")
-    private LocalTime lunchTime; //horário de almoço
+    private LocalTime pauseTime;
     @NotNull(message = "nome não pode ser nulo")
-    private LocalTime departureTime; //horário de saida
+    private LocalTime returnTime;
+    @NotNull(message = "nome não pode ser nulo")
+    private LocalTime endTime;
+    @Enumerated(value = EnumType.STRING)
+    private DayWeekEnum dayWeekEnum;
 }
