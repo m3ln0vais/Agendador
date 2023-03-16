@@ -31,6 +31,11 @@ public class IndexController {
         return "views/main";
     }
     
+    @GetMapping("/schedule")
+    public String schedule() {
+        return "views/schedule";
+    }
+    
     @GetMapping("/service")
     public String service() {
         return "views/service";

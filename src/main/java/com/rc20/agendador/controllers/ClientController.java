@@ -29,8 +29,8 @@ public class ClientController {
     public String client(Model model, Optional<Long> id) {
         model.addAttribute("client", 
                 id.isPresent() ? clientService.findById(id.get()).get() : new Client());
-        model.addAttribute("themes", asList(Themes.values()));
-        return "views/client";
+//        model.addAttribute("themes", asList(Themes.values()));
+        return "views/client/client";
     }
 
     @PostMapping
@@ -41,8 +41,8 @@ public class ClientController {
             return "views/client";
         }
         
-        Client save = clientService.save(client);
+        clientService.save(client);
 
-        return "redirect:/client?id=" + save.getId();
+        return "redirect:/client";
     }
 }
