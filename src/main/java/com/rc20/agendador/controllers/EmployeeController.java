@@ -1,7 +1,7 @@
 package com.rc20.agendador.controllers;
 
-import com.rc20.agendador.enuns.DayWeekEnum;
 import com.rc20.agendador.enuns.EmployeeStatus;
+import com.rc20.agendador.models.DayWeek;
 import com.rc20.agendador.models.Employee;
 import com.rc20.agendador.services.EmployeeService;
 import jakarta.validation.Valid;
@@ -39,12 +39,12 @@ public class EmployeeController {
         model.addAttribute("employee",
                 id.isPresent() ? employeeService.findById(id.get()).get() : new Employee());
         model.addAttribute("employeeStatus", asList(EmployeeStatus.values()));
-        model.addAttribute("dayWeekEnum", asList(DayWeekEnum.values()));
         return "views/employee/employee-form";
     }
 
     @PostMapping
-    public String register(Model model, @Valid Employee employee, BindingResult bindingResult) {
+    public String register(Model model, @Valid Employee employee, BindingResult bindingResult   ) {
+     
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
             model.addAttribute("employee", employee);

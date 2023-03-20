@@ -3,7 +3,15 @@
 <main id="main" class="main">
     <div class="row py-3">
         <div class="col-md-8">
-            <h3 class="fw-bold">Profissionais</h3>
+            <div class="pagetitle">
+                <h3 class="fw-bold">Profissionais</h3>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                        <li class="breadcrumb-item active">Profissionais</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
         <div class="col-md-4">
             <form action="/employee" class="d-flex" role="search">
@@ -49,7 +57,7 @@
                         <td th:text="${p.person.name}"></td>
                         <td class="text-center" th:text="${p.person.contact.phone}"></td>
                         <!-- <td class="text-center" th:text="${p.person.address.cep}"></td> -->
-                        <td class="text-center" th:text="${p.status}"></td>
+                        <td class="text-center" th:text="${p.employeeStatus}"></td>
                         <td class="text-center" th:text="${p.officeHours.startTime}"></td>
                         <td class="text-center" th:text="${p.officeHours.pauseTime}"></td>
                         <td class="text-center" th:text="${p.officeHours.returnTime}"></td>

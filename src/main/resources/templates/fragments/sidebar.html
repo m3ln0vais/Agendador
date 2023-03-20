@@ -2,6 +2,12 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
+            <a class="nav-link collapsed" th:href="@{/dashboard}">
+                <i class="bi bi-speedometer2"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Cadastros</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -25,7 +31,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" th:href="@{/schedule}">
-                <i class="fa fa-calendar-o"></i>
+                <i class="bi bi-calendar"></i>
                 <span>Agenda</span>
             </a>
         </li>

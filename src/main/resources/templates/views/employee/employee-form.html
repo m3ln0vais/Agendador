@@ -13,112 +13,197 @@
         </nav>
     </div><!-- End Page Title -->
 
-    <section class="section ">
+    <section class="section">
+        <ul class="nav justify-content-center nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pessoal-tab" data-bs-toggle="pill" data-bs-target="#pessoal"
+                    type="button" role="tab" aria-controls="pessoal" aria-selected="true">Pessoal</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profissional-tab" data-bs-toggle="pill" data-bs-target="#profissional"
+                    type="button" role="tab" aria-controls="profissional" aria-selected="false">Profissional</button>
+            </li>
+        </ul>
         <div class="card">
             <div class="card-body pt-4">
 
                 <!-- Custom Styled Validation -->
-                <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/employee}"
+                <form class="form-row g-3 needs-validation" novalidate method="POST" th:action="@{/employee}"
                     th:object="${employee}">
-                    <input type="hidden" th:field="*{id}">
-                    <div class="col-md-4">
-                        <label class="form-label">Nome do Profissional</label>
-                        <input type="text" class="form-control" required th:field="*{person.name}"
-                            th:classappend="${#fields.hasErrors('person.name')}? 'is-invalid'">
-                        <div class="text-danger" th:if="${#fields.hasErrors('person.name')}" th:errors="*{person.name}">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pessoal" role="tabpanel"
+                            aria-labelledby="pessoal-tab" tabindex="0">
+                            <input type="hidden" th:field="*{id}">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="form-label">Nome do Profissional</label>
+                                    <input type="text" class="form-control" required th:field="*{person.name}"
+                                        th:classappend="${#fields.hasErrors('person.name')}? 'is-invalid'">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('person.name')}"
+                                        th:errors="*{person.name}">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="hidden" th:field="*{person.contact.id}">
+
+                                    <label class="form-label">Telefone</label>
+                                    <input type="number" class="form-control" required
+                                        th:field="*{person.contact.phone}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('person.contact.phone')}"
+                                        th:errors="*{person.contact.phone}"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" required th:field="*{person.contact.id}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Data de Aniversario</label>
+                                    <input type="date" class="form-control" th:field="*{person.birthday}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+
+                            <div class="row py-2">
+                                <div class="col-md-2">
+                                    <input type="hidden" th:field="*{person.address.id}">
+
+                                    <label class="form-label">CEP</label>
+                                    <input type="text" class="form-control" required th:field="*{person.address.cep}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Rua</label>
+                                    <input type="text" class="form-control" th:field="*{person.address.road}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Bairro</label>
+                                    <input type="text" class="form-control" th:field="*{person.address.district}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Estado</label>
+                                    <input type="text" class="form-control" th:field="*{person.address.state}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Nº</label>
+                                    <input type="text" class="form-control" required
+                                        th:field="*{person.address.number}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="profissional" role="tabpanel" aria-labelledby="profissional-tab"
+                            tabindex="0">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="form-label">Status</label>
+                                    <select class="form-select" required th:field='*{employeeStatus}'>
+                                        <option th:each="s : ${employeeStatus}" th:value="${s}"
+                                            th:text="${s.getStatus}">
+                                            Ativo
+                                        </option>
+                                    </select>
+
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-2 offset-md-1">
+                                    <label class="form-label">Entrada</label>
+                                    <input type="time" class="form-control" required
+                                        th:field="*{officeHours.startTime}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Pausa Almoço</label>
+                                    <input type="time" class="form-control" required
+                                        th:field="*{officeHours.pauseTime}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Retorno Almoço</label>
+                                    <input type="time" class="form-control" required
+                                        th:field="*{officeHours.returnTime}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Saida</label>
+                                    <input type="time" class="form-control" required th:field="*{officeHours.endTime}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+
+                            <div class="row py-4">
+                                <div class="col-md-6 border rounded py-3">
+                                    <h5 class="form-label fw-bold">Selecionar dias da semana</h5>
+                                    <span>
+                                        Adicione os dias da semana que este colaborador estará presente.
+                                    </span>
+                                    <div
+                                        class="d-flex justify-content-between bg-secondary p-2 text-dark bg-opacity-10 mt-3 rounded">
+                                        <span style="display: flex !important; align-items: center !important;">
+                                            Dias da Semana (<span>5</span>)</span>
+                                        <a class="text-decoration-none" data-bs-toggle="collapse"
+                                            href="#collapseEdit" aria-current="page">
+                                            Editar</a>
+                                    </div>
+                                    <div class="collapse" id="collapseEdit">
+                                        <div class="list-group">
+                                            <label class="list-group-item">
+                                                <input class="form-check-input me-1" name="dayWeek" value="dom"
+                                                    type="checkbox"> Domingo
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="list-group-item">
+                                                <input class="form-check-input me-1" name="dayWeek" value="seg"
+                                                    type="checkbox"> Segunda-Feira
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="list-group-item">
+                                                <input class="form-check-input me-1" name="dayWeek" value="ter"
+                                                    type="checkbox"> Terça-Feira
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="list-group-item">
+                                                <input class="form-check-input me-1" name="dayWeek" value="qua"
+                                                    type="checkbox"> Quarta-Feira
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="list-group-item">
+                                                <input class="form-check-input me-1" name="dayWeek" value="qui"
+                                                    type="checkbox"> Quinta-Feira
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="list-group-item">
+                                                <input class="form-check-input me-1" name="dayWeek" value="sex"
+                                                    type="checkbox"> Sexta-Feira
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="list-group-item">
+                                                <input class="form-check-input me-1" name="dayWeek" value="sab"
+                                                    type="checkbox"> Sabado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-end">
+                                <button class="btn btn-primary" type="submit">Salvar</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <input type="hidden" th:field="*{person.contact.id}">
 
-                        <label class="form-label">Telefone</label>
-                        <input type="number" class="form-control" required th:field="*{person.contact.phone}">
-                        <div class="text-danger" th:if="${#fields.hasErrors('person.contact.phone')}"
-                            th:errors="*{person.contact.phone}"></div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control" required th:field="*{person.contact.id}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Data de Aniversario</label>
-                        <input type="date" class="form-control" th:field="*{person.birthday}">
-                        <div class="invalid-feedback"></div>
-                    </div>
 
-                    <div class="col-md-2">
-                        <input type="hidden" th:field="*{person.address.id}">
 
-                        <label class="form-label">CEP</label>
-                        <input type="text" class="form-control" required th:field="*{person.address.cep}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Rua</label>
-                        <input type="text" class="form-control" th:field="*{person.address.road}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Bairro</label>
-                        <input type="text" class="form-control" th:field="*{person.address.district}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Estado</label>
-                        <input type="text" class="form-control" th:field="*{person.address.state}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Nº</label>
-                        <input type="text" class="form-control" required th:field="*{person.address.number}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label class="form-label">Status</label>
-                        <select class="form-select" required th:field='*{employeeStatus}'>
-                            <option th:each="s : ${employeeStatus}" th:value="${s}" th:text="${s.getStatus}">Ativo
-                            </option>
-                        </select>
-
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-2 offset-md-1">
-                        <label class="form-label">Entrada</label>
-                        <input type="time" class="form-control" required th:field="*{officeHours.startTime}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Pausa Almoço</label>
-                        <input type="time" class="form-control" required th:field="*{officeHours.pauseTime}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Retorno Almoço</label>
-                        <input type="time" class="form-control" required th:field="*{officeHours.returnTime}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Saida</label>
-                        <input type="time" class="form-control" required th:field="*{officeHours.endTime}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label">Dia das Semanas</label>
-                        <div class="list-group" th:each="x : ${dayWeekEnum}">
-                            <label class="list-group-item" th:for="${#ids.prev('dayWeekEnum')}"
-                                th:text="#{${'dayWeekEnum.' + x}}">
-                                <input class="form-check-input me-1" type="checkbox" th:field="*{dayWeekEnum}"
-                                    th:value="${x}">
-                                First checkbox
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Salvar</button>
-                    </div>
                 </form><!-- End Custom Styled Validation -->
 
             </div>

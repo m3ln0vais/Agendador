@@ -1,7 +1,40 @@
 <div th:replace="~{fragments/headers}"></div>
 
 <main class="main" id="main">
-    ola
+    <div class="row py-3">
+        <div class="col-md-8">
+            <div class="pagetitle">
+                <h3 class="fw-bold">Agenda</h3>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                        <li class="breadcrumb-item active">Agenda</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="btn-group d-flex justify-content-end">
+                <div class="btn-group">
+                    <button class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Profissionais</button>
+    
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Disponível</a></li>
+                        <li><a class="dropdown-item" href="#">Todos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Adicionar</button>
+    
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Novo Agendamento</a></li>
+                        <li><a class="dropdown-item" href="#">Novo Horário bloqueado</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <div th:replace="~{fragments/footers}"></div>

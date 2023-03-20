@@ -14,7 +14,9 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
@@ -42,19 +44,48 @@
     <script th:src="@{/js/simple-datatables.js}"></script>
     <script th:src="@{/js/tinymce.min.js}"></script>
     <script th:src="@{/js/validate.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/jquery-3.6.3.min.js}"></script>
 
     <!-- Template Main JS File -->
     <script th:src="@{/js/main.js}"></script>
-    <!-- <script>
-        var theme = localStorage.getItem('theme');
-        const headElement  = document.getElementsByTagName('head')[0];
+    <script>
+        // var theme = localStorage.getItem('theme');
+        // const headElement  = document.getElementsByTagName('head')[0];
 
-        const link  = document.createElement('link');
+        // const link  = document.createElement('link');
 
-        link.rel  = 'stylesheet';
-        link.type = 'text/css';
-        link.href = '/css/themes/'+ theme +'.css';
+        // link.rel  = 'stylesheet';
+        // link.type = 'text/css';
+        // link.href = '/css/themes/'+ theme +'.css';
 
-        headElement.appendChild(link);
-    </script> -->
+        // headElement.appendChild(link);
+
+        $(() => {
+            loadTheme()
+
+            $("#changeTheme").click( function(){
+
+                darkMode()
+                localStorage.removeItem('dark')
+                
+                if ($("body:contains(darkBody)") && $("header:contains(darkHeader)") && $("aside:contains(darkSidebar)")) {
+                    localStorage.setItem('dark', 1)
+                }
+            })
+
+            function darkMode() {
+                $("body").toggleClass("darkBody")  
+                $("header").toggleClass("darkHeader")  
+                $("aside").toggleClass("darkSidebar")  
+                $(".card").toggleClass("darkCard")  
+                $("span, a, i, td, th, p, h1, h2, h3, h4, h5").toggleClass("darkText")
+            }
+
+            function loadTheme() {
+                var darkTheme = localStorage.getItem("dark")
+                if (darkTheme) {darkMode()}
+            }
+        })
+    </script>
 </div>

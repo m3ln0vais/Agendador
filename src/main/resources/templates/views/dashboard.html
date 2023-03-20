@@ -1,0 +1,64 @@
+<div th:replace="~{fragments/headers}"></div>
+<main id="main" class="main">
+    <div class="row py-3">
+        <div class="col-md-8">
+            <div class="pagetitle">
+                <h3 class="fw-bold">Dashboard</h3>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card bestsEmployee overflow-auto">
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Melhores Colaboradores</h5>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Serviços</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Corte Básico</td>
+                                <td>10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bestsServicie overflow-auto">
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Melhores Serviços</h5>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Serviços</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Corte Básico</td>
+                                <td>10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{fragments/footers}"></div>

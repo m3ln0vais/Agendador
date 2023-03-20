@@ -40,4 +40,9 @@ public class IndexController {
     public String service() {
         return "views/service";
     }
+    
+    @GetMapping("/dashboard")
+    public String dashboard() {
+        return "views/dashboard";
+    }
 }

@@ -1,6 +1,5 @@
 package com.rc20.agendador.models;
 
-import com.rc20.agendador.enuns.DayWeekEnum;
 import com.rc20.agendador.enuns.EmployeeStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -31,11 +30,13 @@ public class Employee {
     private Person person;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Work> works;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DayWeek> daysWeek;
     @Enumerated(value = EnumType.STRING)
     private EmployeeStatus employeeStatus;
     @OneToOne(cascade = CascadeType.ALL)
     private OfficeHours officeHours;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<DayWeek> daysWeek;
+    
+    
     
 }
