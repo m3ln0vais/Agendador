@@ -13,6 +13,7 @@ import jakarta.persistence.OneToOne;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -21,6 +22,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@ToString
 @Entity
 public class Employee {
     @Id
@@ -34,8 +36,8 @@ public class Employee {
     private EmployeeStatus employeeStatus;
     @OneToOne(cascade = CascadeType.ALL)
     private OfficeHours officeHours;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DayWeek> daysWeek;
+    @OneToOne(cascade = CascadeType.ALL)
+    private DayWeek daysWeek;
     
     
     

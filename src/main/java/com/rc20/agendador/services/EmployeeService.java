@@ -20,6 +20,7 @@ public class EmployeeService {
     private EmployeeRepository employeeRepository;
 
     public Employee save(Employee employee) {
+        System.out.println(employee);
         return employeeRepository.save(employee);
     }
 
