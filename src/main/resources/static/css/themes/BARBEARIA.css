@@ -1,4 +1,35 @@
-body{
-    background-color: #000;
+.darkBody{
+    background-color: #121b22 !important;
+}
+
+.darkHeader{
+    background-color: #1f2c34 !important;
+    box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.082);
+}
+
+.darkText{
+    color: #fff !important; 
+}
+
+.darkSidebar{
+    background-color: #1f2c34 !important;
+}
+.darkSidebar .sidebar-nav .nav-link .collapsed{
+    background-color: #1f2c34 !important;
+}
+
+.darkSidebar .sidebar-nav .nav-link {
+    background-color: #1f2c34 !important;
+}
+.darkSidebar .sidebar-nav .nav-link .collapsed:hover{
+    background-color: #2b3942 !important;
+}
+
+.darkSidebar .sidebar-nav .nav-link:hover{
+    background-color: #2b3942 !important;
+}
+
+.darkCard{
+    background-color: #1f2c34 !important;
 }
 

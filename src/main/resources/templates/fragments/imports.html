@@ -36,6 +36,7 @@
 
 <div th:fragment="scripts">
     <!-- Vendor JS Files -->
+    <script th:src="@{/js/jquery-3.6.3.min.js}"></script>
     <script th:src="@{/js/apexcharts.min.js}"></script>
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/js/chart.umd.js}"></script>
@@ -45,46 +46,44 @@
     <script th:src="@{/js/tinymce.min.js}"></script>
     <script th:src="@{/js/validate.js}"></script>
     <script th:src="@{/js/script.js}"></script>
-    <script th:src="@{/js/jquery-3.6.3.min.js}"></script>
 
     <!-- Template Main JS File -->
     <script th:src="@{/js/main.js}"></script>
     <script>
-        // var theme = localStorage.getItem('theme');
-        // const headElement  = document.getElementsByTagName('head')[0];
-
-        // const link  = document.createElement('link');
-
-        // link.rel  = 'stylesheet';
-        // link.type = 'text/css';
-        // link.href = '/css/themes/'+ theme +'.css';
-
-        // headElement.appendChild(link);
+//        var theme = localStorage.getItem('theme');
+//        const headElement = document.getElementsByTagName('head')[0];
+//
+//        const link = document.createElement('link');
+//
+//        link.rel = 'stylesheet';
+//        link.type = 'text/css';
+//        link.href = '/css/themes/' + theme + '.css';
+//
+//        headElement.appendChild(link);
 
         $(() => {
             loadTheme()
 
-            $("#changeTheme").click( function(){
-
-                darkMode()
-                localStorage.removeItem('dark')
-                
-                if ($("body:contains(darkBody)") && $("header:contains(darkHeader)") && $("aside:contains(darkSidebar)")) {
-                    localStorage.setItem('dark', 1)
-                }
-            })
-
-            function darkMode() {
-                $("body").toggleClass("darkBody")  
-                $("header").toggleClass("darkHeader")  
-                $("aside").toggleClass("darkSidebar")  
-                $(".card").toggleClass("darkCard")  
-                $("span, a, i, td, th, p, h1, h2, h3, h4, h5").toggleClass("darkText")
-            }
-
             function loadTheme() {
-                var darkTheme = localStorage.getItem("dark")
-                if (darkTheme) {darkMode()}
+                var theme = localStorage.getItem("theme")
+                const headElement = document.getElementsByTagName('head')[0];
+
+                const link = document.createElement('link');
+
+                link.rel = 'stylesheet';
+//                link.type = 'text/css';
+                link.href = '/css/themes/' + theme + '.css';
+
+                headElement.appendChild(link);
+//                darkMode()
+            }
+            
+            function darkMode() {
+                $("body").toggleClass("darkBody")
+                $("header").toggleClass("darkHeader")
+                $("aside").toggleClass("darkSidebar")
+                $(".card").toggleClass("darkCard")
+                $("span, a, i, td, th, p, h1, h2, h3, h4, h5").toggleClass("darkText")
             }
         })
     </script>

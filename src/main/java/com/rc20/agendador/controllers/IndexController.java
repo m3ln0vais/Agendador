@@ -1,12 +1,17 @@
 package com.rc20.agendador.controllers;
 
+import com.rc20.agendador.dto.LoginDTO;
 import com.rc20.agendador.models.Employee;
-import com.rc20.agendador.repositories.EmployeeRepository;
+import com.rc20.agendador.models.Store;
+import com.rc20.agendador.services.EmployeeService;
+import com.rc20.agendador.services.StoreService;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -16,35 +21,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class IndexController {
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private StoreService storeService;
 
     @GetMapping("/")
     public String index() {
         return "views/login";
     }
 
-    @PostMapping("/")
-    public String login(Model model, Employee employee) {
-        Employee e = this.employeeRepository.login(employee.getPassword());
-        if (e != null) {
-            return "redirect: views/main";
-        } else {
-            model.addAttribute("error", "senha inválida");
-            return "redirect: views/login";
-        }
-    }
-
-//    @PostMapping("/")
-//    public String login(Client client){
-//        if(client.getPerson().getContact().getEmail().equals("admin") && 
-//           client.getPassword().equals("admin")){
-//            return "redirect: views/main";
-//        }else {
-//            return "redirect: views/login";
-//        }
-//    }
     @GetMapping("/main")
-    public String main() {
+    public String main(Model model, @RequestParam Long id) {
+        model.addAttribute("store", storeService.findById(id).get());
         return "views/main";
     }
 

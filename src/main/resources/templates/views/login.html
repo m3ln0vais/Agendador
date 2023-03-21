@@ -1,101 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{fragments/imports :: head('Login')}"></head>
+    <head th:replace="~{fragments/imports :: head('Login')}"></head>
 
-<body>
-    <main>
-        <div class="container">
-            <section
-                class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+    <body>
+        <main>
+            <div class="container">
+                <section
+                    class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-                            <div class="d-flex justify-content-center py-4">
-                                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                    <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block">Agendador</span>
-                                </a>
-                            </div>
-
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <div class="pt-4 pb-2">
-                                        <h5 class="card-title text-center pb-0 fs-4">Login</h5>
-                                        <p class="text-center small">Insira seu Email e Senha</p>
-                                    </div>
-
-                                    <form id="login" class="row g-3 needs-validation" novalidate th:action="@{/login}" method="POST">
-
-                                        <div class="col-12 py-2">
-                                            <label for="email" class="form-label">Email</label>
-                                            <div class="input-group has-validation">
-                                                <input type="text" name="email" class="form-control" id="email"
-                                                    required>
-                                                <div class="invalid-feedback">Please enter your username.</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label for="senha" class="form-label">Senha</label>
-                                            <input type="password" name="password" class="form-control" id="senha"
-                                                required>
-                                            <div class="invalid-feedback" th:text="${error}">Please enter your password!</div>
-                                        </div>
-
-                                        <div class="col-12 py-2">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="remember"
-                                                    value="true" id="rememberMe">
-                                                <label class="form-check-label" for="rememberMe">Lembre-se de
-                                                    mim</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100" type="submit">Entrar</button>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <p class="small mb-0">
-                                                <a>Esqueci minha senha</a>
-                                            </p>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <p class="small mb-0">Você ainda não tem uma conta?
-                                                <a th:href="@{/client/form}">Criar Conta</a>
-                                            </p>
-                                        </div>
-                                    </form>
-
+                                <div class="d-flex justify-content-center py-4">
+                                    <a href="index.html" class="logo d-flex align-items-center w-auto">
+                                        <img src="assets/img/logo.png" alt="">
+                                        <span class="d-none d-lg-block">Agendador</span>
+                                    </a>
                                 </div>
-                            </div>
 
-                            <div class="credits">
-                                Designed by <a href="https://bootstrapmade.com/">Mel</a>
-                            </div>
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="pt-4 pb-2">
+                                            <h5 class="card-title text-center pb-0 fs-4">Login</h5>
+                                            <p class="text-center small">Insira seu Email e Senha</p>
+                                            <div id="alertInvalid" class="alert alert-danger d-none" role="alert">
+                                                Email/senha inválido
+                                            </div>
+                                        </div>
 
+                                        <form id="login" class="row g-3 needs-validation" novalidate>
+
+                                            <div class="col-12 py-2">
+                                                <label for="email" class="form-label">Email</label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" name="email" class="form-control" id="email"
+                                                           required>
+                                                    <div class="invalid-feedback">Please enter your username.</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label for="password" class="form-label">Senha</label>
+                                                <input type="password" name="password" class="form-control" id="password"
+                                                       required>
+                                                <div class="invalid-feedback">Please enter your password!</div>
+                                            </div>
+
+                                            <div class="col-12 py-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="remember"
+                                                           id="remember">
+                                                    <label class="form-check-label" for="remember">Lembre-se de
+                                                        mim</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn btn-primary w-100" type="submit">Entrar</button>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <p class="small mb-0">
+                                                    <a>Esqueci minha senha</a>
+                                                </p>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <p class="small mb-0">Você ainda não tem uma conta?
+                                                    <a th:href="@{/client/form}">Criar Conta</a>
+                                                </p>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                                <div class="credits">
+                                    Designed by <a href="https://bootstrapmade.com/">Mel</a>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </section>
+                </section>
 
-        </div>
-    </main><!-- End #main -->
+            </div>
+        </main><!-- End #main -->
 
-    <div th:replace="~{fragments/imports :: scripts}"></div>
+        <div th:replace="~{fragments/imports :: scripts}"></div>
 
-    <script>
-        var form = document.querySelector('#login');
-        form.addEventListener("submit", e => {
-            e.preventDefault();
+        <script>
+            $(() => {
+                let remember = localStorage.getItem('loginInfo')
+                if (remember !== null) {
+                    window.location.href = '/main?id=' + remember
+                }
 
-            localStorage.setItem('theme', 'BARBEARIA');
-            window.location.href = '/main'
-        })
-    </script>
-</body>
+                var form = document.querySelector('#login');
+                form.addEventListener("submit", e => {
+                    e.preventDefault();
+                    var data = {
+                        email: $("#email").val(),
+                        password: $("#password").val(),
+                        remember: $("#remember").is(':checked')
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/login",
+                        data: data,
+                        success: res => {
+                            console.log(res);
+                            if (res.remember) {
+                                localStorage.setItem('loginInfo', res.id)
+                            }
+                            localStorage.setItem('theme', res.theme);
+                            window.location.href = '/main?id=' + res.id
+                        },
+                        error: err => {
+                            $("#alertInvalid").removeClass("d-none")
+                        }
+                    });
+
+                })
+            })
+        </script>
+    </body>
 
 </html>

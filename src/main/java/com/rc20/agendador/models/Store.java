@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -42,5 +43,11 @@ public class Store {
 
     @Enumerated(EnumType.STRING)
     private Themes theme;
+    
+    private String email;
+    
+    private String password;
+    @Transient
+    private Boolean remember;
 
 }
