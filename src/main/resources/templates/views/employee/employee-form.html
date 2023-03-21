@@ -110,7 +110,13 @@
 
                                     <div class="invalid-feedback"></div>
                                 </div>
-                                <div class="col-md-2 offset-md-1">
+                                <div class="col-md-2">
+                                    <label class="form-label">Senha</label>
+                                    <input type="password" class="form-control" required
+                                        th:field="*{password}">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-2">
                                     <label class="form-label">Entrada</label>
                                     <input type="time" class="form-control" required
                                         th:field="*{officeHours.startTime}">

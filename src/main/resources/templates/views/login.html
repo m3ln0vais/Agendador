@@ -26,12 +26,12 @@
                                         <p class="text-center small">Insira seu Email e Senha</p>
                                     </div>
 
-                                    <form id="login" cla ss="row g-3 needs-validation" novalidate th:action="@{/login}">
+                                    <form id="login" class="row g-3 needs-validation" novalidate th:action="@{/login}" method="POST">
 
                                         <div class="col-12 py-2">
                                             <label for="email" class="form-label">Email</label>
                                             <div class="input-group has-validation">
-                                                <input type="text" name="username" class="form-control" id="email"
+                                                <input type="text" name="email" class="form-control" id="email"
                                                     required>
                                                 <div class="invalid-feedback">Please enter your username.</div>
                                             </div>
@@ -41,7 +41,7 @@
                                             <label for="senha" class="form-label">Senha</label>
                                             <input type="password" name="password" class="form-control" id="senha"
                                                 required>
-                                            <div class="invalid-feedback">Please enter your password!</div>
+                                            <div class="invalid-feedback" th:text="${error}">Please enter your password!</div>
                                         </div>
 
                                         <div class="col-12 py-2">
@@ -56,24 +56,13 @@
                                             <button class="btn btn-primary w-100" type="submit">Entrar</button>
                                         </div>
 
-                                        <div class="col-12 py-3">
+                                        <div class="col-12">
                                             <p class="small mb-0">
                                                 <a>Esqueci minha senha</a>
                                             </p>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <button class="btn btn-outline-danger w-100" type="submit">
-                                                    <i class="fa fa-google"></i></button>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-outline-primary w-100" type="submit">
-                                                    <i class="fa fa-facebook"></i></button>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 pt-3">
+                                        <div class="col-12">
                                             <p class="small mb-0">Você ainda não tem uma conta?
                                                 <a th:href="@{/client/form}">Criar Conta</a>
                                             </p>

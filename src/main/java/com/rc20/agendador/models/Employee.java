@@ -30,6 +30,7 @@ public class Employee {
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
     private Person person;
+    private String password;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Work> works;
     @Enumerated(value = EnumType.STRING)
