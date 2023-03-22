@@ -26,6 +26,8 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+//    @Min(value = 8, message = "ex: 89325064")
+//    @Max(value = 9, message = "ex: 98325064")
     private Long phone;
     @Email
     private String email;

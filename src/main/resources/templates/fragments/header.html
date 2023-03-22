@@ -215,9 +215,7 @@
 <script>
 
     function logout() {
-        localStorage.removeItem('loginInfo')
-        localStorage.removeItem('theme')
-
+        localStorage.clear()
         window.location.href = "/"
     }
 

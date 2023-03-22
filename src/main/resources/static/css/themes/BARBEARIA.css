@@ -1,35 +1,35 @@
-.darkBody{
+.barbeBody{
     background-color: #121b22 !important;
 }
 
-.darkHeader{
+.barbeHeader{
     background-color: #1f2c34 !important;
     box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.082);
 }
 
-.darkText{
+.barbeText{
     color: #fff !important; 
 }
 
-.darkSidebar{
+.barbeSidebar{
     background-color: #1f2c34 !important;
 }
-.darkSidebar .sidebar-nav .nav-link .collapsed{
+.barbeSidebar .sidebar-nav .nav-link .collapsed{
     background-color: #1f2c34 !important;
 }
 
-.darkSidebar .sidebar-nav .nav-link {
+.barbeSidebar .sidebar-nav .nav-link {
     background-color: #1f2c34 !important;
 }
-.darkSidebar .sidebar-nav .nav-link .collapsed:hover{
+.barbeSidebar .sidebar-nav .nav-link .collapsed:hover{
     background-color: #2b3942 !important;
 }
 
-.darkSidebar .sidebar-nav .nav-link:hover{
+.barbeSidebar .sidebar-nav .nav-link:hover{
     background-color: #2b3942 !important;
 }
 
-.darkCard{
+.barbeCard{
     background-color: #1f2c34 !important;
 }
 

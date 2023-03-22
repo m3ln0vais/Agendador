@@ -29,7 +29,7 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 3, max = 8, message = "min 3 e max 8")
+    @Size(min = 3, message = "O minimo é de 3 letras.")
     @NotNull(message = "nome não pode ser nulo")
     @NotBlank(message = "não pode estar branco")
     private String name;

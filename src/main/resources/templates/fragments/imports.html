@@ -66,24 +66,34 @@
 
             function loadTheme() {
                 var theme = localStorage.getItem("theme")
-                const headElement = document.getElementsByTagName('head')[0];
+                if (theme) {
+                    if (theme === "BARBEARIA") {
+                        barbeariaMode()
+                    }
+                    if (theme === "MANICURE") {
+                        manicureMode()
+                    }
+                    if (theme === "SALAO_DE_BELEZA") {
+                        console.log("SALAO_DE_BELEZA")
+                    }
+                } else {
+                    console.log("no")
+                }
+            }
 
-                const link = document.createElement('link');
-
-                link.rel = 'stylesheet';
-//                link.type = 'text/css';
-                link.href = '/css/themes/' + theme + '.css';
-
-                headElement.appendChild(link);
-//                darkMode()
+            function barbeariaMode() {
+                $("body").toggleClass("barbeBody")
+                $("header").toggleClass("barbeHeader")
+                $("aside").toggleClass("barbeSidebar")
+                $(".card").toggleClass("barbeCard")
+                $("span, a, i, td, th, p, h1, h2, h3, h4, h5").toggleClass("barbeText")
             }
             
-            function darkMode() {
-                $("body").toggleClass("darkBody")
-                $("header").toggleClass("darkHeader")
-                $("aside").toggleClass("darkSidebar")
-                $(".card").toggleClass("darkCard")
-                $("span, a, i, td, th, p, h1, h2, h3, h4, h5").toggleClass("darkText")
+            function  manicureMode(){
+                $("body").toggleClass("manicureBody")
+                $("header").toggleClass("manicureHeader")
+                $("aside").toggleClass("manicureSidebar")
+                 $("span, a, i, td, th, p, h1, h2, h3, h4, h5").toggleClass("manicureText")
             }
         })
     </script>
