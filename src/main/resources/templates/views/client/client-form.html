@@ -15,35 +15,35 @@
         <div class="card">
             <div class="card-body pt-4">
                 <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/client}"
-                    th:object="${client}">
+                      th:object="${client}">
                     <input type="hidden" th:field="*{id}">
 
                     <div class="col-md-5">
                         <label class="form-label">Nome</label>
                         <input type="text" class="form-control" required th:field="*{name}"
-                            th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
+                               th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('name')}"
-                            th:errors="*{name}"></div>
+                             th:errors="*{name}"></div>
                     </div>
                     <div class="col-md-2">
                         <input type="hidden" th:field="*{contact.id}">
 
                         <label class="form-label">Telefone</label>
                         <input type="number" class="form-control" required
-                            th:field="*{contact.phone}">
-                        <div class="invalid-feedback">Por favor insira um telefone</div>
+                               th:field="*{contact.phone}"
+                               th:classappend="${#fields.hasErrors('contact.phone')}? 'is-invalid'">
+                        <div class="text-danger" th:if="${#fields.hasErrors('contact.phone')}"
+                             th:errors="*{contact.phone}"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Email</label>
                         <input type="email" class="form-control" required
-                            th:field="*{contact.email}">
-                        <div class="invalid-feedback">Por favor insira um email</div>
+                               th:field="*{contact.email}">
                     </div>
                     <div class="col-md-2">
                         <label for="yourPassword" class="form-label">Senha</label>
                         <input type="password" name="password" class="form-control"
-                            id="yourPassword" required>
-                        <div class="invalid-feedback">Por favor insira uma senha</div>
+                               id="yourPassword" required>
                     </div>
 
                     <div class="col-md-2">
@@ -51,31 +51,31 @@
 
                         <label class="form-label">CEP</label>
                         <input type="text" class="form-control" required
-                            th:field="*{address.cep}">
+                               th:field="*{address.cep}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Rua</label>
                         <input type="text" class="form-control" required
-                            th:field="*{address.road}">
+                               th:field="*{address.road}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Bairro</label>
                         <input type="text" class="form-control" required
-                            th:field="*{address.district}">
+                               th:field="*{address.district}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Estado</label>
                         <input type="text" class="form-control" required
-                            th:field="*{address.state}">
+                               th:field="*{address.state}">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Nº</label>
                         <input type="text" class="form-control" required
-                            th:field="*{address.number}">
+                               th:field="*{address.number}">
                         <div class="invalid-feedback"></div>
                     </div>
 

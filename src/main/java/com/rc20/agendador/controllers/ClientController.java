@@ -35,7 +35,6 @@ public class ClientController {
     public String client(Model model, Optional<Long> id) {
         model.addAttribute("client", 
                 id.isPresent() ? clientService.findById(id.get()).get() : new Client());
-//        model.addAttribute("themes", asList(Themes.values()));
         return "views/client/client-form";
     }
 

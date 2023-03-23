@@ -46,22 +46,22 @@
 /* MANICURE */
 
 .manicureHeader{
-    background-color: #88778C !important;
+    background-color: #E3D1FF !important;
     box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.082);
 }
 
 .manicureSidebar{
-    background-color: #88778C !important;
+    background-color: #E3D1FF !important;
 }
 
 .manicureSidebar .sidebar-nav .nav-link{
-    background-color: #88778C !important;
+    background-color: #E3D1FF !important;
 }
 
 .manicureBody{
-    background-color: #635766 !important;
+    background-color: white !important;
 }
 
 .manicureText{
-    color: #fff !important;
+    color: black !important;
 }
