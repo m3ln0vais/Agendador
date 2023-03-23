@@ -22,8 +22,11 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
     @OneToOne(cascade = CascadeType.ALL)
-    private Person person;
+    private Contact contact;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
     private LocalDateTime lastSchedule;
     @OneToOne(cascade = CascadeType.ALL)
     private Work lastWork;

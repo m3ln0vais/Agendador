@@ -1,7 +1,72 @@
 <div th:replace="~{fragments/headers}"></div>
 
 <main class="main" id="main">
-    ola
+    <div class="row py-3">
+        <div class="col-md-8">
+            <div class="pagetitle">
+                <h3 class="fw-bold">Clientes</h3>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                        <li class="breadcrumb-item active">Clientes</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form action="/client" class="d-flex" role="search">
+                <div class="input-group">
+                    <input class="form-control search" name="q" type="search" placeholder="Pesquisar"
+                        aria-label="Search">
+                    <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                    <a class="btn btn-primary" type="button" th:href="@{/client/form}">Incluir</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mt-3">
+                <span class="text-muted" style="font-size: 15px !important;" th:text="${page.totalElements + ' Clientes Cadastrados'}">4
+                    Registros</span>
+            </div>
+            <div class="col-md-6 py-3">
+                <ul th:replace="~{fragments/pagination::p(${page}, '/client')}"></ul>
+            </div>
+        </div>
+
+        <span th:if="${page.empty}">nenhuma informação encontrada</span>
+
+        <div class="card">
+            <div class="card-body mt-3">
+                <table class="table table-striped table-sm my-0">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th class="text-center">Telefone</th>
+                            <th class="text-center">Ùltimo agendamento</th>
+                            <th class="text-center">Ùltimo serviço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="p: ${page.content}">
+                            <td th:text="${p.name}"></td>
+                            <td class="text-center" th:text="${p.contact.phone}"></td>
+                            <td class="text-center" th:text="${p.lastWork.name}"></td>
+                            
+
+                            <td class="d-flex justify-content-end">
+                                <div class="btn-group">
+                                    <a th:href="${'/client/form?id=' + p.id}" class="btn btn-warning"><i
+                                            class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </main>
 
 <div th:replace="~{fragments/footers}"></div>

@@ -1,7 +1,6 @@
 package com.rc20.agendador.controllers;
 
 import com.rc20.agendador.dto.LoginDTO;
-import com.rc20.agendador.models.Store;
 import com.rc20.agendador.models.Work;
 import com.rc20.agendador.services.StoreService;
 import com.rc20.agendador.services.WorkService;

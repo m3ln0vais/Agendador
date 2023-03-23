@@ -1,7 +1,6 @@
 package com.rc20.agendador.controllers;
 
 import com.rc20.agendador.enuns.EmployeeStatus;
-import com.rc20.agendador.models.DayWeek;
 import com.rc20.agendador.models.Employee;
 import com.rc20.agendador.services.EmployeeService;
 import jakarta.validation.Valid;

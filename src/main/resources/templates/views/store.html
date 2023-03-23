@@ -27,20 +27,30 @@
                             th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <input type="hidden" th:field="*{contact.id}">
 
                         <label class="form-label">Telefone</label>
-                        <input type="number" class="form-control" required th:field="*{contact.phone}" 
-                               th:classappend="${#fields.hasErrors('contact.phone')}? 'is-invalid'">
-                        <div class="text-danger" th:if="${#fields.hasErrors('contact.phone')}" th:errors="*{contact.phone}"></div>
+                        <input type="number" class="form-control" required th:field="*{contact.phone}"
+                            th:classappend="${#fields.hasErrors('contact.phone')}? 'is-invalid'">
+                        <div class="text-danger" th:if="${#fields.hasErrors('contact.phone')}"
+                            th:errors="*{contact.phone}"></div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" required th:field="*{contact.email}" 
-                               th:classappend="${#fields.hasErrors('contact.email')}? 'is-invalid'">
-                        <div class="text-danger" th:if="${#fields.hasErrors('contact.email')}" th:errors="*{contact.email}"></div>
+                        <input type="email" class="form-control" required th:field="*{contact.email}"
+                            th:classappend="${#fields.hasErrors('contact.email')}? 'is-invalid'">
+                        <div class="text-danger" th:if="${#fields.hasErrors('contact.email')}"
+                            th:errors="*{contact.email}"></div>
                     </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Senha</label>
+                        <input type="password" class="form-control" required th:field="*{password}"
+                            th:classappend="${#fields.hasErrors('password')}? 'is-invalid'">
+                        <div class="text-danger" th:if="${#fields.hasErrors('password')}"
+                            th:errors="*{password}"></div>
+                    </div>
+
                     <div class="col-md-2">
                         <input type="hidden" th:field="*{address.id}">
 
@@ -51,20 +61,23 @@
                     <div class="col-md-3">
                         <label class="form-label">Rua</label>
                         <input type="text" class="form-control" required th:field="*{address.road}"
-                               th:classappend="${#fields.hasErrors('address.road')}? 'is-invalid'">
-                        <div class="text-danger" th:if="${#fields.hasErrors('address.road')}" th:errors="*{address.road}"></div>
+                            th:classappend="${#fields.hasErrors('address.road')}? 'is-invalid'">
+                        <div class="text-danger" th:if="${#fields.hasErrors('address.road')}"
+                            th:errors="*{address.road}"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Bairro</label>
                         <input type="text" class="form-control" required th:field="*{address.district}"
-                               th:classappend="${#fields.hasErrors('address.district')}? 'is-invalid'">
-                        <div class="text-danger" th:if="${#fields.hasErrors('address.district')}" th:errors="*{address.district}"></div>
+                            th:classappend="${#fields.hasErrors('address.district')}? 'is-invalid'">
+                        <div class="text-danger" th:if="${#fields.hasErrors('address.district')}"
+                            th:errors="*{address.district}"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Estado</label>
                         <input type="text" class="form-control" required th:field="*{address.state}"
-                               th:classappend="${#fields.hasErrors('address.state')}? 'is-invalid'">
-                        <div class="text-danger" th:if="${#fields.hasErrors('address.state')}" th:errors="*{address.state}"></div>
+                            th:classappend="${#fields.hasErrors('address.state')}? 'is-invalid'">
+                        <div class="text-danger" th:if="${#fields.hasErrors('address.state')}"
+                            th:errors="*{address.state}"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Nº</label>
@@ -72,7 +85,7 @@
                         <div class="invalid-feedback"></div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label class="form-label">tema</label>
                         <select class="form-select" th:field='*{theme}'>
                             <option th:each="t : ${themes}" th:value="${t}" th:text="${t.getDesc}">Barber</option>
@@ -80,12 +93,12 @@
 
                         <div class="invalid-feedback"></div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-5">
                         <label class="form-label">Logo</label>
                         <input type="file" class="form-control">
                         <div class="invalid-feedback"></div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-5">
                         <label class="form-label">Slogan</label>
                         <input type="text" class="form-control" required th:field="*{slogan}">
                         <div class="invalid-feedback"></div>

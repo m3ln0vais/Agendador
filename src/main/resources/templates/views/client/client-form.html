@@ -1,121 +1,93 @@
-<!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/headers}"></div>
 
-<head th:replace="~{fragments/imports :: head('Login')}"></head>
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Cadastro de Clientes</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item active">Clientes</li>
+            </ol>
+        </nav>
+    </div>
 
-<body>
-    <main>
-        <div class="container">
-            <section
-                class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+    <section class="section">
+        <div class="card">
+            <div class="card-body pt-4">
+                <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/client}"
+                    th:object="${client}">
+                    <input type="hidden" th:field="*{id}">
 
-                            <div class="d-flex justify-content-center py-4">
-                                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                    <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block">Agendador</span>
-                                </a>
-                            </div>
-
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <div class="pt-4 pb-2">
-                                        <h5 class="card-title text-center pb-0 fs-4">Criar Conta</h5>
-                                        <p class="text-center small">Insira seus dados pessoais para criar uma conta</p>
-                                    </div>
-
-                                    <form class="row g-3 needs-validation" novalidate method="POST"
-                                        th:action="@{/client}" th:object="${client}">
-                                        <input type="hidden" th:field="*{id}">
-
-                                        <div class="col-md-8">
-                                            <label class="form-label">Nome</label>
-                                            <input type="text" class="form-control" required th:field="*{person.name}"
-                                                th:classappend="${#fields.hasErrors('person.name')}? 'is-invalid'">
-                                            <div class="text-danger" th:if="${#fields.hasErrors('person.name')}"
-                                                th:errors="*{person.name}"></div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <input type="hidden" th:field="*{person.contact.id}">
-
-                                            <label class="form-label">Whatsapp</label>
-                                            <input type="number" class="form-control" required
-                                                th:field="*{person.contact.phone}">
-                                            <div class="invalid-feedback">Por favor insira um telefone</div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Email</label>
-                                            <input type="email" class="form-control" required
-                                                th:field="*{person.contact.email}">
-                                            <div class="invalid-feedback">Por favor insira um email</div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="yourPassword" class="form-label">Senha</label>
-                                            <input type="password" name="password" class="form-control"
-                                                id="yourPassword" required>
-                                            <div class="invalid-feedback">Por favor insira uma senha</div>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <input type="hidden" th:field="*{person.address.id}">
-
-                                            <label class="form-label">CEP</label>
-                                            <input type="text" class="form-control" required
-                                                th:field="*{person.address.cep}">
-                                            <div class="invalid-feedback"></div>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <label class="form-label">Rua</label>
-                                            <input type="text" class="form-control" required
-                                                th:field="*{person.address.road}">
-                                            <div class="invalid-feedback"></div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Bairro</label>
-                                            <input type="text" class="form-control" required
-                                                th:field="*{person.address.district}">
-                                            <div class="invalid-feedback"></div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label">Estado</label>
-                                            <input type="text" class="form-control" required
-                                                th:field="*{person.address.state}">
-                                            <div class="invalid-feedback"></div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label">Nº</label>
-                                            <input type="text" class="form-control" required
-                                                th:field="*{person.address.number}">
-                                            <div class="invalid-feedback"></div>
-                                        </div>
-
-
-                                        <div class="col-md-12">
-                                            <button class="btn btn-primary w-100" type="submit">Criar</button>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="small mb-0">Já tem uma conta?
-                                                <a th:href="@{/login}">Conecte-se</a>
-                                            </p>
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-
-                            <div class="credits">
-                                Designed by <a href="https://bootstrapmade.com/">Mel</a>
-                            </div>
-                        </div>
+                    <div class="col-md-5">
+                        <label class="form-label">Nome</label>
+                        <input type="text" class="form-control" required th:field="*{name}"
+                            th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
+                        <div class="text-danger" th:if="${#fields.hasErrors('name')}"
+                            th:errors="*{name}"></div>
                     </div>
-                </div>
-            </section>
-        </div>
-    </main>
+                    <div class="col-md-2">
+                        <input type="hidden" th:field="*{contact.id}">
 
-    <div th:replace="~{fragments/imports :: scripts}"></div>
-</body>
+                        <label class="form-label">Telefone</label>
+                        <input type="number" class="form-control" required
+                            th:field="*{contact.phone}">
+                        <div class="invalid-feedback">Por favor insira um telefone</div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" required
+                            th:field="*{contact.email}">
+                        <div class="invalid-feedback">Por favor insira um email</div>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="yourPassword" class="form-label">Senha</label>
+                        <input type="password" name="password" class="form-control"
+                            id="yourPassword" required>
+                        <div class="invalid-feedback">Por favor insira uma senha</div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="hidden" th:field="*{address.id}">
+
+                        <label class="form-label">CEP</label>
+                        <input type="text" class="form-control" required
+                            th:field="*{address.cep}">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Rua</label>
+                        <input type="text" class="form-control" required
+                            th:field="*{address.road}">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Bairro</label>
+                        <input type="text" class="form-control" required
+                            th:field="*{address.district}">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Estado</label>
+                        <input type="text" class="form-control" required
+                            th:field="*{address.state}">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Nº</label>
+                        <input type="text" class="form-control" required
+                            th:field="*{address.number}">
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+<div th:replace="~{fragments/footers}"></div>

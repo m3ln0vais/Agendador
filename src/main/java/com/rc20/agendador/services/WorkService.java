@@ -47,8 +47,4 @@ public class WorkService {
     public void deleteById(Long id){
         workRepository.deleteById(id);
     }
-
-//    public void findByLogin(String user, String pass) {
-//        workRepository.findBy
-//    }
 }
