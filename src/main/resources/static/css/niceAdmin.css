@@ -620,7 +620,7 @@ h6 {
   top: 60px;
   left: 0;
   bottom: 0;
-  width: 300px !important;
+  width: 250px !important;
   z-index: 996;
   transition: all 0.3s;
   padding: 20px;
@@ -651,13 +651,13 @@ h6 {
 
   #main,
   #footer {
-    margin-left: 300px;
+    margin-left: 250px;
   }
 }
 
 @media (max-width: 1199px) {
   .toggle-sidebar .sidebar {
-    left: 0;
+    left: -20px;
   }
 }
 
@@ -669,7 +669,7 @@ h6 {
   }
 
   .toggle-sidebar .sidebar {
-    left: -300px;
+    left: -250px;
   }
 }
 

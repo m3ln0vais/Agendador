@@ -26,7 +26,8 @@
 
         <div class="row">
             <div class="col-md-6 mt-3">
-                <span class="text-muted" style="font-size: 15px !important;" th:text="${page.totalElements + ' Clientes Cadastrados'}">4
+                <span class="text-muted" style="font-size: 15px !important;"
+                    th:text="${page.totalElements + ' Clientes Cadastrados'}">4
                     Registros</span>
             </div>
             <div class="col-md-6 py-3">
@@ -51,9 +52,9 @@
                         <tr th:each="p: ${page.content}">
                             <td th:text="${p.name}"></td>
                             <td class="text-center" th:text="${p.contact.phone}"></td>
-                           <td class="text-center" th:text="${p.lastWork.name}"></td>
+                            <!-- <td class="text-center" th:text="${p.lastWork.name}"></td> -->
                             <td class="text-center"></td>
-                            
+
 
                             <td class="d-flex justify-content-end">
                                 <div class="btn-group">
