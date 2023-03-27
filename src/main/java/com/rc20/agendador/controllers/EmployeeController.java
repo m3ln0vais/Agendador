@@ -42,12 +42,12 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public String register(Model model, @Valid Employee employee, BindingResult bindingResult   ) {
+    public String register(Model model, @Valid Employee employee, BindingResult bindingResult) {
      
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
             model.addAttribute("employee", employee);
-            return "views/employee";
+            return "views/employee/employee-form";
         }
 
         employeeService.save(employee);
