@@ -35,7 +35,7 @@ public class StoreController {
         model.addAttribute("store",
                 id.isPresent() ? storeService.findById(id.get()).get() : new Store());
         model.addAttribute("themes", asList(Themes.values()));
-        return "views/store";
+        return "views/store/store";
     }
 
     @PostMapping
@@ -51,16 +51,12 @@ public class StoreController {
             store.setImg(b);
         };
         if (bindingResult.hasErrors()) {
-            bindingResult.getAllErrors().forEach(e -> {
-                System.out.println(e.getDefaultMessage());
-            });
 
             model.addAttribute("errors", bindingResult.getAllErrors());
             model.addAttribute("store", store);
             model.addAttribute("themes", asList(Themes.values()));
             return "views/store";
         }
-        System.out.println("c");
 
         Store save = storeService.save(store);
         return "redirect:/store?id=" + save.getId();

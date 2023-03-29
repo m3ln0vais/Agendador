@@ -19,12 +19,12 @@
 
                 <!-- Custom Styled Validation -->
                 <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/store}" enctype="multipart/form-data"
-                    th:object="${store}">
+                      th:object="${store}">
                     <input type="hidden" th:field="*{id}">
                     <div class="col-md-5">
                         <label class="form-label">Nome da Empresa</label>
                         <input type="text" class="form-control" required th:field="*{name}"
-                            th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
+                               th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                     </div>
                     <div class="col-md-2">
@@ -32,23 +32,23 @@
 
                         <label class="form-label">Telefone</label>
                         <input type="number" class="form-control" required th:field="*{contact.phone}"
-                            th:classappend="${#fields.hasErrors('contact.phone')}? 'is-invalid'">
+                               th:classappend="${#fields.hasErrors('contact.phone')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('contact.phone')}"
-                            th:errors="*{contact.phone}"></div>
+                             th:errors="*{contact.phone}"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Email</label>
                         <input type="email" class="form-control" required th:field="*{contact.email}"
-                            th:classappend="${#fields.hasErrors('contact.email')}? 'is-invalid'">
+                               th:classappend="${#fields.hasErrors('contact.email')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('contact.email')}"
-                            th:errors="*{contact.email}"></div>
+                             th:errors="*{contact.email}"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Senha</label>
                         <input type="password" class="form-control" required th:field="*{password}"
-                            th:classappend="${#fields.hasErrors('password')}? 'is-invalid'">
+                               th:classappend="${#fields.hasErrors('password')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('password')}"
-                            th:errors="*{password}"></div>
+                             th:errors="*{password}"></div>
                     </div>
 
                     <div class="col-md-2">
@@ -61,23 +61,23 @@
                     <div class="col-md-3">
                         <label class="form-label">Rua</label>
                         <input type="text" class="form-control" required th:field="*{address.road}"
-                            th:classappend="${#fields.hasErrors('address.road')}? 'is-invalid'">
+                               th:classappend="${#fields.hasErrors('address.road')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('address.road')}"
-                            th:errors="*{address.road}"></div>
+                             th:errors="*{address.road}"></div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Bairro</label>
                         <input type="text" class="form-control" required th:field="*{address.district}"
-                            th:classappend="${#fields.hasErrors('address.district')}? 'is-invalid'">
+                               th:classappend="${#fields.hasErrors('address.district')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('address.district')}"
-                            th:errors="*{address.district}"></div>
+                             th:errors="*{address.district}"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Estado</label>
                         <input type="text" class="form-control" required th:field="*{address.state}"
-                            th:classappend="${#fields.hasErrors('address.state')}? 'is-invalid'">
+                               th:classappend="${#fields.hasErrors('address.state')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('address.state')}"
-                            th:errors="*{address.state}"></div>
+                             th:errors="*{address.state}"></div>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Nº</label>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-md-5">
                         <label class="form-label">Logo</label>
-                        <input type="file"  class="form-control" name="file" accept="image/*">
+                        <input type="file" class="form-control" name="file" accept="image/*">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="col-md-5">
@@ -103,14 +103,19 @@
                         <input type="text" class="form-control" required th:field="*{slogan}">
                         <div class="invalid-feedback"></div>
                     </div>
+
+<!--                    <img height="150px" width="200px" th:src="*{'data:image/*;base64,'+ getImgBase64}"
+                         class="border border-dark rounded" alt="...">-->
+                    
+
                     <div class="col-12 d-flex justify-content-end">
                         <button class="btn btn-primary" type="submit">Salvar</button>
                     </div>
-                </form><!-- End Custom Styled Validation -->
+                </form>
 
             </div>
         </div>
     </section>
 
-</main><!-- End #main -->
+</main>
 <div th:replace="~{fragments/footers}"></div>

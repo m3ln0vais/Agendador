@@ -1,5 +1,6 @@
 package com.rc20.agendador.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rc20.agendador.enuns.Themes;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -52,5 +53,10 @@ public class Store {
     private Boolean remember;
     @Lob
     private byte[] img;
+    
+    @JsonIgnore
+    public String getImgBase64(){
+        return new String(img);
+    };
 
 }
