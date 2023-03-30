@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
 /**
  *
  * @author Desenv. 02
@@ -30,32 +31,40 @@ public class StoreController {
     @Autowired
     private StoreService storeService;
 
-    @GetMapping
-    public String store(Model model, Optional<Long> id) {
+//    @GetMapping
+//    public String work(Model model, @RequestParam Long id) {
+//        model.addAttribute("store", storeService.findById(id).get());
+//        return "views/store/store";
+//    }
+    @GetMapping("/form")
+    public String storeForm(Model model, Optional<Long> id) {
         model.addAttribute("store",
                 id.isPresent() ? storeService.findById(id.get()).get() : new Store());
         model.addAttribute("themes", asList(Themes.values()));
-        return "views/store/store";
+        return "views/store/store-form";
     }
 
     @PostMapping
     public String register(Model model, @Valid Store store, BindingResult bindingResult, @RequestParam MultipartFile file) throws IOException {
+       
+        
         if (!file.isEmpty()) {
             File img = new File(file.getOriginalFilename());
-            if(!img.exists()){
+            if (!img.exists()) {
                 img.createNewFile();
             }
             Files.write(img.toPath(), file.getBytes());
             byte[] x = Files.readAllBytes(img.toPath());
             byte[] b = Base64.getEncoder().encode(x);
             store.setImg(b);
-        };
+        }
+        
         if (bindingResult.hasErrors()) {
 
             model.addAttribute("errors", bindingResult.getAllErrors());
             model.addAttribute("store", store);
             model.addAttribute("themes", asList(Themes.values()));
-            return "views/store";
+            return "views/store/store-form";
         }
 
         Store save = storeService.save(store);

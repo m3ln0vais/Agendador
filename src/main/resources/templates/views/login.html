@@ -115,7 +115,7 @@
                                 localStorage.setItem('loginInfo', res.id)
                             }
                             localStorage.setItem('theme', res.theme);
-                            window.location.href = '/main?id=' + res.id
+                            window.location.href = '/store?id=' + res.id
                         },
                         error: err => {
                             $("#alertInvalid").removeClass("d-none")

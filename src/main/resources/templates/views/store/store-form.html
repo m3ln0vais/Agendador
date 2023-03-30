@@ -1,83 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
-    <head th:replace="~{fragments/imports :: head('Login')}"></head>
+<head th:replace="~{fragments/imports :: head('Login')}"></head>
 
-    <body>
-        <main>
-            <div class="container">
-                <section
-                    class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8 col-md-8 d-flex flex-column align-items-center justify-content-center">
+<body>
+    <main>
+        <div class="container">
+            <section
+                class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-8 d-flex flex-column align-items-center justify-content-center">
 
-                                <div class="d-flex justify-content-center py-4">
-                                    <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                        <img src="assets/img/logo.png" alt="">
-                                        <span class="d-none d-lg-block">Agendador</span>
-                                    </a>
-                                </div>
+                            <div class="d-flex justify-content-center py-4">
+                                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                                    <img src="assets/img/logo.png" alt="">
+                                    <span class="d-none d-lg-block">Agendador</span>
+                                </a>
+                            </div>
 
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <div class="pt-4 pb-2">
-                                            <h5 class="card-title text-center pb-0 fs-4">Criar uma conta</h5>
-                                            <p class="text-center small">Preencha as informações</p>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="pt-4 pb-2">
+                                        <h5 class="card-title text-center pb-0 fs-4">Criar uma conta</h5>
+                                        <p class="text-center small">Preencha as informações</p>
+                                    </div>
+
+                                    <form class="row g-3 needs-validation" novalidate method="POST"
+                                        th:action="@{/store}" th:object="${store}">
+                                        <input type="hidden" th:field="*{id}">
+                                        <div class="col-md-8">
+                                            <label class="form-label">Nome da Empresa</label>
+                                            <input type="text" class="form-control" required th:field="*{name}"
+                                                th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
+                                            <div class="text-danger" th:if="${#fields.hasErrors('name')}"
+                                                th:errors="*{name}"></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="hidden" th:field="*{contact.id}">
+
+                                            <label class="form-label">Telefone</label>
+                                            <input type="number" class="form-control" required
+                                                th:field="*{contact.phone}"
+                                                th:classappend="${#fields.hasErrors('contact.phone')}? 'is-invalid'">
+                                            <div class="text-danger" th:if="${#fields.hasErrors('contact.phone')}"
+                                                th:errors="*{contact.phone}"></div>
                                         </div>
 
-                                        <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/store}"
-                                              th:object="${store}">
-                                            <input type="hidden" th:field="*{id}">
-                                            <div class="col-md-8">
-                                                <label class="form-label">Nome da Empresa</label>
-                                                <input type="text" class="form-control" required th:field="*{name}"
-                                                       th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
-                                                <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input type="hidden" th:field="*{contact.id}">
+                                        <div class="col-md-4">
+                                            <label class="form-label">tema</label>
+                                            <select class="form-select" th:field='*{theme}'>
+                                                <option th:each="t : ${themes}" th:value="${t}" 
+                                                th:text="${t.getDesc}">Barber</option>
+                                            </select>
 
-                                                <label class="form-label">Telefone</label>
-                                                <input type="number" class="form-control" required th:field="*{contact.phone}"
-                                                       th:classappend="${#fields.hasErrors('contact.phone')}? 'is-invalid'">
-                                                <div class="text-danger" th:if="${#fields.hasErrors('contact.phone')}"
-                                                     th:errors="*{contact.phone}"></div>
-                                            </div>
-
-                                            <div class="col-md-8">
-                                                <label class="form-label">Email</label>
-                                                <input type="email" class="form-control" required th:field="*{email}"
-                                                       th:classappend="${#fields.hasErrors('email')}? 'is-invalid'">
-                                                <div class="text-danger" th:if="${#fields.hasErrors('email')}"
-                                                     th:errors="*{email}"></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="form-label">Senha</label>
-                                                <input type="password" class="form-control" required th:field="*{password}"
-                                                       th:classappend="${#fields.hasErrors('password')}? 'is-invalid'">
-                                                <div class="text-danger" th:if="${#fields.hasErrors('password')}"
-                                                     th:errors="*{password}"></div>
-                                            </div>
-                                            <div class="col-12 d-flex justify-content-end">
-                                                <button class="btn btn-primary" type="submit">Salvar</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control" required th:field="*{email}"
+                                                th:classappend="${#fields.hasErrors('email')}? 'is-invalid'">
+                                            <div class="text-danger" th:if="${#fields.hasErrors('email')}"
+                                                th:errors="*{email}"></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">Senha</label>
+                                            <input type="password" class="form-control" required th:field="*{password}"
+                                                th:classappend="${#fields.hasErrors('password')}? 'is-invalid'">
+                                            <div class="text-danger" th:if="${#fields.hasErrors('password')}"
+                                                th:errors="*{password}"></div>
+                                        </div>
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <button class="btn btn-primary" type="submit">Salvar</button>
+                                        </div>
+                                    </form>
                                 </div>
+                            </div>
 
-                                <div class="credits">
-                                    Designed by <a href="https://bootstrapmade.com/">Mel</a>
-                                </div>
+                            <div class="credits">
+                                Designed by <a href="https://bootstrapmade.com/">Mel</a>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                </section>
+            </section>
 
-            </div>
-        </main>
+        </div>
+    </main>
 
-        <div th:replace="~{fragments/imports :: scripts}"></div>
-    </body>
+    <div th:replace="~{fragments/imports :: scripts}"></div>
+</body>
+
 </html>

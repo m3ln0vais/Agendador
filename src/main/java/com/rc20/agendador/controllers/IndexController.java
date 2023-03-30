@@ -22,10 +22,10 @@ public class IndexController {
         return "views/login";
     }
 
-    @GetMapping("/main")
+    @GetMapping("/store")
     public String main(Model model, @RequestParam Long id) {
         model.addAttribute("store", storeService.findById(id).get());
-        return "views/main";
+        return "views/store/store";
     }
 
     @GetMapping("/service")
