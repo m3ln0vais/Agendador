@@ -31,11 +31,6 @@ public class StoreController {
     @Autowired
     private StoreService storeService;
 
-//    @GetMapping
-//    public String work(Model model, @RequestParam Long id) {
-//        model.addAttribute("store", storeService.findById(id).get());
-//        return "views/store/store";
-//    }
     @GetMapping("/form")
     public String storeForm(Model model, Optional<Long> id) {
         model.addAttribute("store",

@@ -67,7 +67,7 @@
 
                                             <div class="col-12">
                                                 <p class="small mb-0">Você ainda não tem uma conta?
-                                                    <a th:href="@{/store/form}">Criar Conta</a>
+                                                    <a th:href="@{/register}">Criar Conta</a>
                                                 </p>
                                             </div>
                                         </form>
@@ -115,7 +115,8 @@
                                 localStorage.setItem('loginInfo', res.id)
                             }
                             localStorage.setItem('theme', res.theme);
-                            window.location.href = '/store?id=' + res.id
+                            window.location.href = '\
+        /main?id=' + res.id
                         },
                         error: err => {
                             $("#alertInvalid").removeClass("d-none")
