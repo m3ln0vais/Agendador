@@ -59,4 +59,13 @@ public class Store {
         return new String(img);
     };
 
+    public Store(Long id) {
+        this.id = id;
+    }
+
+    public Store() {
+    }
+    
+    
+
 }

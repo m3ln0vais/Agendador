@@ -1,5 +1,6 @@
 package com.rc20.agendador.repositories;
 
+import com.rc20.agendador.models.Store;
 import com.rc20.agendador.models.Work;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,5 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WorkRepository extends JpaRepository<Work, Long>{
     public Page<Work> findByNameContainingIgnoreCase(String name, Pageable page);
+    public Page<Work> findByStoreAndNameContainingIgnoreCase(Store store, String name, Pageable page);
+    public Page<Work> findByStore(Store store, Pageable page);
     
 }

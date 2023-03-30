@@ -1,5 +1,6 @@
 package com.rc20.agendador.controllers;
 
+import com.rc20.agendador.models.Store;
 import com.rc20.agendador.models.Work;
 import com.rc20.agendador.services.WorkService;
 import jakarta.validation.Valid;
@@ -22,7 +23,7 @@ public class WorkController {
 
     @Autowired
     private WorkService workService;
-
+    
     @GetMapping
     public String work(Model model, Optional<Integer> page, Optional<String> q) {
         model.addAttribute("page", q.isPresent()
@@ -39,13 +40,14 @@ public class WorkController {
     }
 
     @PostMapping
-    public String register(Model model, @Valid Work work, BindingResult bindingResult) {
+    public String save(Model model, @Valid Work work, Long storeId, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
             model.addAttribute("work", work);
             return "views/work/work-form";
         }
-
+        
+        work.setStore( new Store(storeId));
         workService.save(work);
 
         return "redirect:/work";

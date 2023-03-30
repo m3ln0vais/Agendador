@@ -32,17 +32,15 @@ public class StoreController {
     private StoreService storeService;
 
     @GetMapping("/form")
-    public String storeForm(Model model, Optional<Long> id) {
-        model.addAttribute("store",
-                id.isPresent() ? storeService.findById(id.get()).get() : new Store());
+    public String storeForm(Model model, Long id) throws IOException {
+        model.addAttribute("store", storeService.findById(id).get());
         model.addAttribute("themes", asList(Themes.values()));
-        return "views/store/store-form";
+        return "views/store";
     }
 
     @PostMapping
     public String register(Model model, @Valid Store store, BindingResult bindingResult, @RequestParam MultipartFile file) throws IOException {
-       
-        
+
         if (!file.isEmpty()) {
             File img = new File(file.getOriginalFilename());
             if (!img.exists()) {
@@ -53,16 +51,16 @@ public class StoreController {
             byte[] b = Base64.getEncoder().encode(x);
             store.setImg(b);
         }
-        
+
         if (bindingResult.hasErrors()) {
 
             model.addAttribute("errors", bindingResult.getAllErrors());
             model.addAttribute("store", store);
             model.addAttribute("themes", asList(Themes.values()));
-            return "views/store/store-form";
+            return "views/store";
         }
 
         Store save = storeService.save(store);
-        return "redirect:/store?id=" + save.getId();
+        return "redirect:/main?id=" + save.getId();
     }
 }

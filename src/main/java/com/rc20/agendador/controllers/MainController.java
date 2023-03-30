@@ -1,7 +1,7 @@
 package com.rc20.agendador.controllers;
 
-import com.rc20.agendador.models.Store;
 import com.rc20.agendador.services.StoreService;
+import java.io.IOException;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +19,8 @@ public class MainController {
     private StoreService storeService;
 
     @GetMapping("/main")
-    public String main(Model model, Optional<Long> id) {
-        model.addAttribute("store", storeService.findById(id.get()).get());
+    public String main(Model model, Long id) throws IOException {
+        model.addAttribute("store", storeService.findById(id).get());
 
         return "views/main";
     }

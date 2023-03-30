@@ -7,7 +7,7 @@
         <h1>Cadastro de Serviço</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="/main?id=3">Inicio</a></li>
                 <li class="breadcrumb-item active">Serviço</li>
             </ol>
         </nav>
@@ -18,7 +18,7 @@
             <div class="card-body pt-4">
 
                 <!-- Custom Styled Validation -->
-                <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/work}"
+                <form class="row g-3 needs-validation" novalidate method="POST" th:action="${'/work?storeId=2'}"
                     th:object="${work}">
                     <input type="hidden" th:field="*{id}">
                     <div class="col-md-6">

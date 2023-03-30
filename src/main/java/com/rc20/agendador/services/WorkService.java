@@ -1,5 +1,6 @@
 package com.rc20.agendador.services;
 
+import com.rc20.agendador.models.Store;
 import com.rc20.agendador.models.Work;
 import com.rc20.agendador.repositories.WorkRepository;
 import java.util.List;
@@ -31,13 +32,14 @@ public class WorkService {
     public Page<Work> find(Integer page){
         page = Optional.ofNullable(page).orElse(0);
         page = page < 0 ? 0 : page;
-        return workRepository.findAll(PageRequest.of(page, 5));
+        return workRepository.findByStore(new Store(2L), PageRequest.of(page, 5));
     }
     
     public Page<Work> findByName(Integer page, String name){
         page = Optional.ofNullable(page).orElse(0);
         page = page < 0 ? 0 : page;
-        return workRepository.findByNameContainingIgnoreCase(name, PageRequest.of(page, 2));
+        return workRepository.findByStoreAndNameContainingIgnoreCase(new Store(2L), name, PageRequest.of(page, 2));
+//        return workRepository.findByNameContainingIgnoreCase(name, PageRequest.of(page, 2));
     }
     
     public Optional<Work> findById(Long id){
