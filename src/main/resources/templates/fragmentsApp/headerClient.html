@@ -1,7 +1,6 @@
-<header id="header" class="header fixed-top d-flex align-items-center">
-
+<header id="headerClient" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
-        <a th:href="@{/main}" class="logo d-flex align-items-center">
+        <a class="logo d-flex align-items-center">
             <img th:src="@{/img/logo.png}" alt="">
             <span class="d-none d-lg-block">Agendador</span>
         </a>
@@ -197,25 +196,14 @@
                         <hr class="dropdown-divider">
                     </li>
 
-                    <li onclick="logout()">
+                    <li>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sign Out</span>
                         </a>
                     </li>
-
-                </ul><!-- End Profile Dropdown Items -->
-            </li><!-- End Profile Nav -->
-
+                </ul>
+            </li>
         </ul>
     </nav>
 </header>
-
-<script>
-
-    function logout() {
-        localStorage.clear()
-        window.location.href = "/"
-    }
-
-</script>

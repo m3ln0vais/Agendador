@@ -45,19 +45,19 @@ public class Store {
 
     @Enumerated(EnumType.STRING)
     private Themes theme;
-    
+
     private String email;
-    
+
     private String password;
     @Transient
     private Boolean remember;
     @Lob
     private byte[] img;
-    
+
     @JsonIgnore
-    public String getImgBase64(){
+    public String getImgBase64() {
         return new String(img);
-    };
+    }
 
     public Store(Long id) {
         this.id = id;
@@ -65,7 +65,4 @@ public class Store {
 
     public Store() {
     }
-    
-    
-
 }

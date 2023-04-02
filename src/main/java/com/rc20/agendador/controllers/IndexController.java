@@ -27,6 +27,16 @@ public class IndexController {
     public String index() {
         return "views/login";
     }
+    
+    @GetMapping("/loginClient")
+    public String loginClient() {
+        return "views/clientApp/loginClient";
+    }
+    
+    @GetMapping("/mainClient")
+    public String mainClient() {
+        return "views/clientApp/mainClient";
+    }
 
     @GetMapping("/register")
     public String register(Model model) {
@@ -38,13 +48,11 @@ public class IndexController {
     @PostMapping("/register")
     public String registerForm(Model model, @Valid RegisterDTO rdto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println("a");
             model.addAttribute("register", rdto);
             model.addAttribute("errors", bindingResult.getAllErrors());
             model.addAttribute("themes", asList(Themes.values()));
             return "views/register";
         }
-        System.out.println("b");
         
         Store store = new Store();
         store.setName(rdto.getName());

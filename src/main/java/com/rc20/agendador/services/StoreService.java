@@ -3,7 +3,6 @@ package com.rc20.agendador.services;
 import com.rc20.agendador.dto.LoginDTO;
 import com.rc20.agendador.models.Store;
 import com.rc20.agendador.repositories.StoreRepository;
-import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
