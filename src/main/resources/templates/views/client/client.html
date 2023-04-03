@@ -43,7 +43,6 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th class="text-center">Telefone</th>
                             <th class="text-center">Último serviço</th>
                             <th class="text-center">Último agendamento</th>
                         </tr>
@@ -51,7 +50,6 @@
                     <tbody>
                         <tr th:each="p: ${page.content}">
                             <td th:text="${p.name}"></td>
-                            <td class="text-center" th:text="${p.contact.phone}"></td>
                             <!-- <td class="text-center" th:text="${p.lastWork.name}"></td> -->
                             <td class="text-center"></td>
 

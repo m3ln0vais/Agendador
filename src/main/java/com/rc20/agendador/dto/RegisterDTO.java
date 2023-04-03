@@ -1,24 +1,21 @@
 package com.rc20.agendador.dto;
 
 import com.rc20.agendador.enuns.Themes;
-import com.rc20.agendador.models.Address;
-import com.rc20.agendador.models.Contact;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
  * @author Desenv. 02
  */
-@Data
+@Getter
+@Setter
 public class RegisterDTO {
 
     @Size(min = 3, message = "O minimo é de 3 letras.")

@@ -27,32 +27,22 @@
                                     </div>
 
                                     <form class="row g-3 needs-validation" novalidate method="POST"
-                                        th:action="@{/register}" th:object="${register}">
-                                        <div class="col-md-8">
-                                            <label class="form-label">Nome da Empresa</label>
+                                        th:action="@{/registerClient}" th:object="${register}">
+                                        <div class="col-md-5">
+                                            <label class="form-label">Nome</label>
                                             <input type="text" class="form-control" required th:field="*{name}"
                                                 th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
                                             <div class="text-danger" th:if="${#fields.hasErrors('name')}"
                                                 th:errors="*{name}"></div>
                                         </div>
-
-                                        <div class="col-md-4">
-                                            <label class="form-label">tema</label>
-                                            <select class="form-select" th:field='*{theme}'>
-                                                <option th:each="t : ${themes}" th:value="${t}" 
-                                                th:text="${t.getDesc}">Barber</option>
-                                            </select>
-
-                                            <div class="invalid-feedback"></div>
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <label class="form-label">Email</label>
                                             <input type="email" class="form-control" required th:field="*{email}"
                                                 th:classappend="${#fields.hasErrors('email')}? 'is-invalid'">
                                             <div class="text-danger" th:if="${#fields.hasErrors('email')}"
                                                 th:errors="*{email}"></div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <label class="form-label">Senha</label>
                                             <input type="password" class="form-control" required th:field="*{password}"
                                                 th:classappend="${#fields.hasErrors('password')}? 'is-invalid'">
@@ -61,7 +51,6 @@
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
                                             <button class="btn btn-primary" type="submit">Salvar</button>
-                                        </div>
                                     </form>
                                 </div>
                             </div>

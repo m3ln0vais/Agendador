@@ -1,10 +1,73 @@
 <div th:replace="~{fragmentsApp/headersClient}"></div>
-        <!-- ====== Main ====== -->
-        <main id="main" class="main">
-            <h2>Olá...</h2>
-            <section class="section ">
-                esta é a pag index
-            </section>
+<!-- ====== Main ====== -->
+<main id="main" class="main">
+    <h2 class="pb-4">Olá...</h2>
+    <section class="section">
 
-        </main><!-- End #main -->
-<div th:replace="~{fragments/footers}"></div> 
+        <p class="text-center">Faça seu agendamento abaixo</p>
+        <div class="card">
+            <h5 class="card-title text-center">Nome do Estabelecimento</h5>
+            <div class="card-body py-0">
+                <div class="row">
+                    <div class="col-md-12 pb-3">
+                        <select class="form-select" id="service">
+                            <option selected>Selecione um serviço</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 pb-3">
+                        <select class="form-select" id="employee" disabled="true">
+                            <option selected>Selecione um profissional</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 pb-3">
+                        <select class="form-select" id="dt" disabled="true">
+                            <option selected>Selecione uma data</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 pb-3">
+                        <select class="form-select" id="time" disabled="true">
+                            <option selected>Selecione um horário</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100" id="btnSave" disabled type="submit">Agendar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+<div th:replace="~{fragments/footers}"></div>
+<script>
+    $(() => {
+        $("#service").change( function(){
+            console.log("ok");
+            $("#employee").prop("disabled", false)
+        })
+        $("#employee").change( function(){
+            console.log("ok");
+            $("#dt").prop("disabled", false)
+        })
+        $("#dt").change( function(){
+            console.log("ok");
+            $("#time").prop("disabled", false)
+        })
+        $("#time").change( function(){
+            console.log("ok");
+            $("#btnSave").prop("disabled", false)
+        })
+    })
+</script>

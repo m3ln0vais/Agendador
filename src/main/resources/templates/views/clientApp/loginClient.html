@@ -21,20 +21,51 @@
 
                             <div class="card mb-3">
                                 <div class="card-body">
-                                    <div class="pt-4 pb-2">
+                                    <div class="pt-2 pb-2">
                                         <h5 class="card-title text-center pb-0 fs-4">Login</h5>
-                                        <p class="text-center small">Entre com a sua conta do</p>
+                                        <p class="text-center small">Insira seu Email e Senha</p>
+                                        <div id="alertInvalid" class="alert alert-danger d-none text-center"
+                                            role="alert">
+                                            email/senha inválido
+                                        </div>
                                     </div>
 
                                     <form id="login" class="row g-3 needs-validation" novalidate>
-
                                         <div class="col-12">
-                                        
-                                            <a class="btn btn-outline-danger w-100 bi bi-google" type="button" th:href="@{/mainClient}"></a>
+                                            <label for="email" class="form-label">Email</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" name="email" class="form-control" id="email"
+                                                    required>
+                                                <div class="invalid-feedback">Por favor insira seu
+                                                    <strong>email</strong> cadastrado no sistema
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="password" class="form-label">Senha</label>
+                                            <input type="password" name="password" class="form-control" id="password"
+                                                required>
+                                            <div class="invalid-feedback">Por favor insira sua <strong>senha</strong>
+                                                cadastrada no sistema</div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100" type="submit">Entrar</button>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <p class="text-center small">Ou entre com a sua conta do:</p>
+                                        </div>
+                                        <div class="col-12">
+                                            <a class="btn btn-danger w-100 bi bi-google" type="button"
+                                                th:href="@{/mainClient}"></a>
+                                        </div>
+                                        <div class="col-12">
+                                            <a class="btn btn-primary w-100 bi bi-facebook" type="button"
+                                                th:href="@{/mainClient}"></a>
                                         </div>
                                         <div class="col-12">
                                             <p class="small mb-0">Você ainda não tem uma conta?
-                                                <a>Criar Conta</a>
+                                                <a th:href="@{/registerClient}">Criar Conta</a>
                                             </p>
                                         </div>
                                     </form>
@@ -51,6 +82,35 @@
         </div>
     </main>
     <div th:replace="~{fragments/imports :: scripts}"></div>
+    <script>
+        $(() => {
+            var form = document.querySelector('#login');
+            form.addEventListener("submit", e => {
+                e.preventDefault();
+                var data = {
+                    email: $("#email").val(),
+                    password: $("#password").val()
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/loginClient",
+                    data: data,
+                    success: res => {
+                        console.log(res);
+                            localStorage.setItem('loginInfo', res.id)
+                        // if (res.remember) {
+                        // }
+                        // localStorage.setItem('theme', res.theme);
+                        window.location.href = '\/mainClient'
+                    },
+                    error: err => {
+                        $("#alertInvalid").removeClass("d-none")
+                    }
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>

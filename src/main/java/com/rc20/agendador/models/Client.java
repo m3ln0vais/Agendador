@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
 import lombok.Getter;
@@ -32,5 +33,7 @@ public class Client {
     private LocalDateTime lastSchedule;
     @OneToOne(cascade = CascadeType.ALL)
     private Work lastWork;
+    @Email
+    private String email;
     private String password;
 }
