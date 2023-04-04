@@ -42,13 +42,15 @@
                 <table th:unless="${page.empty}" class="table table-striped table-sm my-0">
                     <thead>
                         <tr>
+                            <th>a</th>
                             <th>Nome</th>
                             <th class="text-center">Último serviço</th>
                             <th class="text-center">Último agendamento</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="p: ${page.content}">
+                        <tr th:each="p, iterStat: ${page.content}" th:classappend="${iterStat.index % 2 == 0 ? 'bg-primary' : 'bg-secondary'}">
+                            <td th:text="${iterStat.index}">a</td>
                             <td th:text="${p.name}"></td>
                             <!-- <td class="text-center" th:text="${p.lastWork.name}"></td> -->
                             <td class="text-center"></td>

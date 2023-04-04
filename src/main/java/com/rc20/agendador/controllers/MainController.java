@@ -29,6 +29,7 @@ public class MainController {
      
     @GetMapping("/mainClient")
     public String mainClient(Model m, Long id) {
+//         m.addAttribute("client", clientService.findById(id).get());
         return "views/clientApp/mainClient";
     }
 }

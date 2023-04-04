@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
@@ -36,4 +37,7 @@ public class Client {
     @Email
     private String email;
     private String password;
+    @Transient
+    private Boolean remember;
+    
 }

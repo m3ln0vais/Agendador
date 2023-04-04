@@ -47,11 +47,12 @@ public class ClientService {
     public void deleteById(Long id) {
         clientRepository.deleteById(id);
     }
-    
+
     public Optional<Client> login(LoginDTO loginDTO) {
         Optional<Client> client = clientRepository.findByEmail(loginDTO.getEmail());
         if (client.isPresent()) {
             if (loginDTO.getPassword().equals(client.get().getPassword())) {
+                client.get().setRemember(loginDTO.getRemember());
                 return client;
             }
         }
