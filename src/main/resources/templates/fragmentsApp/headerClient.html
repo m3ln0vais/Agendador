@@ -55,7 +55,7 @@
                         <hr class="dropdown-divider">
                     </li>
 
-                    <li>
+                    <li onclick="logout()">
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sign Out</span>
@@ -66,3 +66,11 @@
         </ul>
     </nav>
 </header>
+<script>
+
+    function logout() {
+        localStorage.clear()
+        window.location.href = "/loginClient"
+    }
+
+</script>

@@ -7,12 +7,12 @@
     <main>
         <div class="container">
             <section
-                class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-1">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-                            <div class="d-flex justify-content-center py-4">
+                            <div class="d-flex justify-content-center py-3">
                                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                                     <img src="assets/img/logo.png" alt="">
                                     <span>Agendador</span>
@@ -48,6 +48,13 @@
                                             <div class="invalid-feedback">Por favor insira sua <strong>senha</strong>
                                                 cadastrada no sistema</div>
                                         </div>
+                                        <div class="col-12 py-2">
+                                            <div class="form">
+                                                <input class="form-input" type="checkbox" name="remember" id="remember">
+                                                <label class="form-label" for="remember">Lembre-se de
+                                                    mim</label>
+                                            </div>
+                                        </div>
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Entrar</button>
                                         </div>
@@ -55,7 +62,7 @@
                                         <div class="col-md-12">
                                             <p class="text-center small">Ou entre com a sua conta do:</p>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 mt-0">
                                             <a class="btn btn-danger w-100 bi bi-google" type="button"
                                                 th:href="@{/mainClient}"></a>
                                         </div>
@@ -94,14 +101,14 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "/loginClient",
+                    url: "/login",
                     data: data,
                     success: res => {
                         console.log(res);
+                        localStorage.setItem('loginInfo', res.id)
+                        if (res.remember) {
                             localStorage.setItem('loginInfo', res.id)
-                        // if (res.remember) {
-                        // }
-                        // localStorage.setItem('theme', res.theme);
+                        }
                         window.location.href = '\/mainClient'
                     },
                     error: err => {

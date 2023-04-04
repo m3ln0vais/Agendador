@@ -2,8 +2,6 @@ package com.rc20.agendador.services;
 
 import com.rc20.agendador.dto.LoginDTO;
 import com.rc20.agendador.models.Client;
-import com.rc20.agendador.models.Client;
-import com.rc20.agendador.models.Work;
 import com.rc20.agendador.repositories.ClientRepository;
 import java.util.List;
 import java.util.Optional;
@@ -50,7 +48,7 @@ public class ClientService {
         clientRepository.deleteById(id);
     }
     
-    public Optional<Client> loginClient(LoginDTO loginDTO) {
+    public Optional<Client> login(LoginDTO loginDTO) {
         Optional<Client> client = clientRepository.findByEmail(loginDTO.getEmail());
         if (client.isPresent()) {
             if (loginDTO.getPassword().equals(client.get().getPassword())) {
