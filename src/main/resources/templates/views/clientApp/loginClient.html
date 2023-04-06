@@ -101,14 +101,14 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "/login",
+                    url: "/loginClient",
                     data: data,
                     success: res => {
                         localStorage.setItem('loginInfo', res.id)
                         if (res.remember) {
                             localStorage.setItem('loginInfo', res.id)
                         }
-                        window.location.href = '\/mainClient'
+                        window.location.href = '\/mainClient', + res.id
                     },
                     error: err => {
                         $("#alertInvalid").removeClass("d-none")

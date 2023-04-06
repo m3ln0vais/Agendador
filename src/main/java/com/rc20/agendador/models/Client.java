@@ -39,5 +39,13 @@ public class Client {
     private String password;
     @Transient
     private Boolean remember;
+
+    public Client(Long id) {
+        this.id = id;
+    }
+
+    public Client() {
+    }
+    
     
 }
