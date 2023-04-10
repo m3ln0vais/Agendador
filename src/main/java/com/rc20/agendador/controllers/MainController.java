@@ -17,19 +17,19 @@ public class MainController {
 
     @Autowired
     private StoreService storeService;
-    
+
+    @Autowired
     private ClientService clientService;
 
     @GetMapping("/main")
     public String main(Model model, Long id) throws IOException {
         model.addAttribute("store", storeService.findById(id).get());
-
         return "views/main";
     }
-     
+
     @GetMapping("/mainClient")
-    public String mainClient(Model m, Long id) {
-//         m.addAttribute("client", clientService.findById(id).get());
+    public String mainClient(Model model, Long id) throws IOException {
+//        model.addAttribute("client", clientService.findById(id).get());
         return "views/clientApp/mainClient";
     }
 }

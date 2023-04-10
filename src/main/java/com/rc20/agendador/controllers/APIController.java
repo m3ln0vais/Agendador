@@ -2,6 +2,7 @@ package com.rc20.agendador.controllers;
 
 import com.rc20.agendador.dto.LoginDTO;
 import com.rc20.agendador.models.Work;
+import com.rc20.agendador.services.ClientService;
 import com.rc20.agendador.services.StoreService;
 import com.rc20.agendador.services.WorkService;
 import java.util.Optional;
@@ -24,6 +25,9 @@ public class APIController {
     
     @Autowired
     private WorkService workService;
+    
+    @Autowired
+    public ClientService clientService;
 
     @GetMapping("/page")
     public Page<Work> work(Optional<Integer> page) {
@@ -33,5 +37,10 @@ public class APIController {
     @PostMapping("/login")
     public ResponseEntity login(LoginDTO loginDTO) {
         return ResponseEntity.of(storeService.login(loginDTO));
+    }
+    
+    @PostMapping("/loginClient")
+    public ResponseEntity loginClient(LoginDTO clientDTO) {
+        return ResponseEntity.of(clientService.login(clientDTO));
     }
 }
