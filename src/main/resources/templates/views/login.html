@@ -112,7 +112,6 @@
                     url: "/login",
                     data: data,
                     success: res => {
-                        console.log(res);
                         if (res.remember) {
                             localStorage.setItem('loginInfo', res.id)
                         }

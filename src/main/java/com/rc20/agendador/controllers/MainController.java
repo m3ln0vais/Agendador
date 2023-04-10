@@ -28,8 +28,8 @@ public class MainController {
     }
 
     @GetMapping("/mainClient")
-    public String mainClient(Model model, Long id) throws IOException {
-//        model.addAttribute("client", clientService.findById(id).get());
+    public String mainClient(Model model, Long id) throws IOException{
+        model.addAttribute("client", clientService.findById(id).get().getId());
         return "views/clientApp/mainClient";
     }
 }

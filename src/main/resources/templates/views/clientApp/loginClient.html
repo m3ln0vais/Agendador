@@ -91,6 +91,11 @@
     <div th:replace="~{fragments/imports :: scripts}"></div>
     <script>
         $(() => {
+            // let remember = localStorage.getItem('loginClient')
+            // if (remember !== null) {
+            //     window.location.href = '/mainClient?id=' + remember
+            // }
+
             var form = document.querySelector('#login');
             form.addEventListener("submit", e => {
                 e.preventDefault();
@@ -104,11 +109,11 @@
                     url: "/loginClient",
                     data: data,
                     success: res => {
-                        localStorage.setItem('loginInfo', res.id)
                         if (res.remember) {
-                            localStorage.setItem('loginInfo', res.id)
+                            localStorage.setItem('loginClient', res.id)
                         }
-                        window.location.href = '\/mainClient', + res.id
+                        window.location.href = '\/mainClient?id=' + res.id
+
                     },
                     error: err => {
                         $("#alertInvalid").removeClass("d-none")

@@ -22,4 +22,9 @@ public class ClientAppController {
         return "views/clientApp/historic";
     }
     
+    @GetMapping("/clientForm")
+    public String form(){
+        return "views/clientApp/clientForm";
+    }
+    
 }

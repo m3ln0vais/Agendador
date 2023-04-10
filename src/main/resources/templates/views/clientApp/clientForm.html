@@ -1,0 +1,76 @@
+<div th:replace="~{fragmentsApp/headersClient}"></div>
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Informações do Cliente</h1>
+
+        <form class="py-4" method="POST" th:action="@{/client/form}" th:object="${client}">
+            <div class="form-row">
+                <!-- <input type="hidden" th:field="*{id}"> -->
+
+                <!-- <div class="col-md-12">
+                    <label class="form-label">Nome</label>
+                    <input type="text" class="form-control" required th:field="*{name}">
+                    <div class="text-danger"></div>
+                </div> -->
+                <!-- <div class="col-md-12">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control" required th:field="*{email}">
+                    <div class="text-danger"></div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Telefone</label>
+                            <input type="text" class="form-control" required th:field="*{contact.phone}">
+                            <div class="text-danger"></div>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Senha</label>
+                            <input type="password" class="form-control" required th:field="*{password}">
+                            <div class="text-danger"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">CEP</label>
+                            <input type="text" class="form-control" required th:field="*{address.cep}">
+                            <div class="text-danger"></div>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">N°</label>
+                            <input type="password" class="form-control" required th:field="*{address.number}">
+                            <div class="text-danger"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Rua</label>
+                    <input type="text" class="form-control" required th:field="*{address.road}">
+                    <div class="text-danger"></div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-9">
+                            <label class="form-label">Bairro</label>
+                            <input type="text" class="form-control" required th:field="*{address.district}">
+                            <div class="text-danger"></div>
+                        </div>
+                        <div class="col-3">
+                            <label class="form-label">Estado</label>
+                            <input type="text" maxlength="2" class="form-control" required 
+                            th:field="*{address.state}">
+                            <div class="text-danger"></div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="col-12 py-4 d-flex justify-content-end">
+                    <button class="btn btn-primary" type="submit">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+<div th:replace="~{fragments/footers}"></div>
