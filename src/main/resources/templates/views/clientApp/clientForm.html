@@ -3,16 +3,16 @@
     <div class="pagetitle">
         <h1>Informações do Cliente</h1>
 
-        <form class="py-4" method="POST" th:action="@{/client/form}" th:object="${client}">
+        <form class="py-4" method="POST" th:action="@{/client-app/clientForm}" th:object="${client}">
             <div class="form-row">
-                <!-- <input type="hidden" th:field="*{id}"> -->
+                <input type="hidden" th:field="*{id}">
 
-                <!-- <div class="col-md-12">
+                <div class="col-md-12">
                     <label class="form-label">Nome</label>
                     <input type="text" class="form-control" required th:field="*{name}">
                     <div class="text-danger"></div>
-                </div> -->
-                <!-- <div class="col-md-12">
+                </div>
+                <div class="col-md-12">
                     <label class="form-label">Email</label>
                     <input type="text" class="form-control" required th:field="*{email}">
                     <div class="text-danger"></div>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-6">
                             <label class="form-label">N°</label>
-                            <input type="password" class="form-control" required th:field="*{address.number}">
+                            <input type="text" class="form-control" required th:field="*{address.number}">
                             <div class="text-danger"></div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                             <div class="text-danger"></div>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="col-12 py-4 d-flex justify-content-end">
                     <button class="btn btn-primary" type="submit">Salvar</button>
