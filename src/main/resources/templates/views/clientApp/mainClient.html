@@ -8,43 +8,46 @@
         <div class="card">
             <h5 class="card-title text-center">Nome do Estabelecimento</h5>
             <div class="card-body py-0">
-                <div class="row">
-                    <div class="col-md-12 pb-3">
-                        <select class="form-select" id="service">
-                            <option selected>Selecione um serviço</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                <form class="form" amethod="POST" th:action="@{/mainClient}" 
+                th:object="${client}">
+                    <div class="row">
+                        <input type="hidden" th:field="*{id}">
+                        
+                        <div class="col-md-12 pb-3">
+                            <select class="form-select" id="service" th:field="*{lastWork}">
+                                <option selected value="">Selecione um serviço</option>
+                                <option th:each="work : ${listWork}" th:value="${work.id}" 
+                                    th:text="${work.name}"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 pb-3">
+                            <select class="form-select" id="employee" disabled="true">
+                                <option selected>Selecione um profissional</option>
+                                <option th:each="employee : ${listEmployee}" th:value="${employee.id}"
+                                    th:text="${employee.person.name}"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 pb-3">
+                            <select class="form-select" id="dt" disabled="true">
+                                <option selected>Selecione uma data</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 pb-3">
+                            <select class="form-select" id="time" disabled="true">
+                                <option selected>Selecione um horário</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100" id="btnSave" disabled type="submit">Agendar</button>
+                        </div>
                     </div>
-                    <div class="col-md-12 pb-3">
-                        <select class="form-select" id="employee" disabled="true">
-                            <option selected>Selecione um profissional</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class="col-md-12 pb-3">
-                        <select class="form-select" id="dt" disabled="true">
-                            <option selected>Selecione uma data</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class="col-md-12 pb-3">
-                        <select class="form-select" id="time" disabled="true">
-                            <option selected>Selecione um horário</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class="col-12">
-                        <button class="btn btn-primary w-100" id="btnSave" disabled type="submit">Agendar</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </section>
@@ -53,16 +56,16 @@
 <div th:replace="~{fragments/footers}"></div>
 <script>
     $(() => {
-        $("#service").change( function(){
+        $("#service").change(function () {
             $("#employee").prop("disabled", false)
         })
-        $("#employee").change( function(){
+        $("#employee").change(function () {
             $("#dt").prop("disabled", false)
         })
-        $("#dt").change( function(){
+        $("#dt").change(function () {
             $("#time").prop("disabled", false)
         })
-        $("#time").change( function(){
+        $("#time").change(function () {
             $("#btnSave").prop("disabled", false)
         })
     })

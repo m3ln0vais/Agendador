@@ -91,17 +91,18 @@
     <div th:replace="~{fragments/imports :: scripts}"></div>
     <script>
         $(() => {
-            // let remember = localStorage.getItem('loginClient')
-            // if (remember !== null) {
-            //     window.location.href = '/mainClient?id=' + remember
-            // }
+            let remember = localStorage.getItem('loginClient')
+            if (remember !== null) {
+                window.location.href = '/mainClient?id=' + remember
+            }
 
             var form = document.querySelector('#login');
             form.addEventListener("submit", e => {
                 e.preventDefault();
                 var data = {
                     email: $("#email").val(),
-                    password: $("#password").val()
+                    password: $("#password").val(),
+                    remember: $("#remember").is(':checked')
                 }
 
                 $.ajax({
