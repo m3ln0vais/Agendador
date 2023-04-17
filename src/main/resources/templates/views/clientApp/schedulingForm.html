@@ -1,0 +1,58 @@
+<div th:replace="~{fragmentsApp/headersClient}"></div>
+<!-- ====== Main ====== -->
+<main id="main" class="main">
+    <h2 class="pb-4">Olá <span th:text=${client.name}>(nome do cliente)</span></h2>
+    <section class="section">
+
+        <p class="text-center">Faça seu agendamento abaixo</p>
+        <div class="card">
+            <h5 class="card-title text-center">Nome do Estabelecimento</h5>
+            <div class="card-body py-0">
+                <form class="form" method="POST" th:action="@{/scheduling-app/schedule}" th:object="${schedule}"
+                      >
+                    <div class="row">
+                        <input type="hidden" th:field="*{id}">
+                        <input type="hidden" name="client" th:value="${client.id}">
+
+                        <div class="col-md-12 pb-3">
+                            <select class="form-select" id="service" th:field="*{work}">
+                                <option th:each="work : ${listWork}" th:value="${work.id}" 
+                                        th:text="${work.name}"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 pb-3">
+                            <select class="form-select" id="employee" th:field="*{employee}">
+                                <option th:each="employee : ${listEmployee}" th:value="${employee.id}"
+                                        th:text="${employee.person.name}"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 pb-3">
+                            <input class="form-control" id="dt" type="datetime-local" th:field="*{schedulingTo}">
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100" disabled="true" id="btnSave" type="submit">Agendar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+<div th:replace="~{fragments/footers}"></div>
+<script>
+    $(() => {
+        $("#service").change(() => valid())
+        $("#employee").change(() => valid())
+        $("#dt").change(() => valid())
+
+        function valid() {
+            var a = $("#service").val() !== null && $("#dt").val() === "";
+            $("#btnSave").prop("disabled", a)
+            return a;
+        }
+    })
+
+
+</script>

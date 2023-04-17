@@ -1,6 +1,7 @@
 <div th:replace="~{fragmentsApp/headersClient}"></div>
 
 <main id="main" class="main">
-    carregando...
+    <h1>agendamentos</h1>
+    <h2 th:each="s : ${schedules}" th:text="${s.id}"></h2>
 </main>
 <div th:replace="~{fragments/footers}"></div>

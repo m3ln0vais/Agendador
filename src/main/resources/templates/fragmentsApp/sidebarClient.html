@@ -2,9 +2,13 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link collapsed" th:href="@{/client-app/historic}">
+            <a class="nav-link collapsed" th:href="${'/scheduling-app/scheduling?id=' + client.id}">
                 <i class="bi bi-clock-history"></i>
-                <span>Histórico</span>
+                <span>Agendamento</span>
+            </a>
+            <a class="nav-link collapsed" th:href="${'/scheduling-app/schedule?id=' + client.id}">
+                <i class="bi bi-clock-history"></i>
+                <span>Novo agendamento</span>
             </a>
         </li>
     </ul>

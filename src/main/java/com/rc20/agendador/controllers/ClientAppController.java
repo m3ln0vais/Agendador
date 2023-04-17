@@ -22,12 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ClientAppController {
     @Autowired
     private ClientService clientService;
-    
-    @GetMapping("/historic")
-    public String historic(){
-        return "views/clientApp/historic";
-    }
-    
+
     @GetMapping("/clientForm")
     public String form(Model model, Optional<Long> id) {
         model.addAttribute("client", 
