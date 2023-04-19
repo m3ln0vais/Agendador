@@ -8,30 +8,35 @@
         <div class="card">
             <h5 class="card-title text-center">Nome do Estabelecimento</h5>
             <div class="card-body py-0">
-                <form class="form" method="POST" th:action="@{/scheduling-app/schedule}" th:object="${schedule}"
-                      >
+                <form class="form" method="POST" th:action="@{/scheduling-app/schedule}" th:object="${schedule}">
                     <div class="row">
                         <input type="hidden" th:field="*{id}">
                         <input type="hidden" name="client" th:value="${client.id}">
 
                         <div class="col-md-12 pb-3">
                             <select class="form-select" id="service" th:field="*{work}">
-                                <option th:each="work : ${listWork}" th:value="${work.id}" 
-                                        th:text="${work.name}"></option>
+                                <option th:each="work : ${listWork}" th:value="${work.id}" th:text="${work.name}">
+                                </option>
                             </select>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 pb-3">
                             <select class="form-select" id="employee" th:field="*{employee}">
                                 <option th:each="employee : ${listEmployee}" th:value="${employee.id}"
-                                        th:text="${employee.person.name}"></option>
+                                    th:text="${employee.person.name}"></option>
                             </select>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 pb-3">
                             <input class="form-control" id="dt" type="datetime-local" th:field="*{schedulingTo}">
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="col-12">
-                            <button class="btn btn-primary w-100" disabled="true" id="btnSave" type="submit">Agendar</button>
+                            <button class="btn btn-primary w-100" disabled="true" id="btnSave"
+                                type="submit">Agendar</button>
                         </div>
                     </div>
                 </form>

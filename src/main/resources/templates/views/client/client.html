@@ -45,7 +45,6 @@
                 <table th:unless="${page.empty}" class="table table-sm my-0">
                     <thead>
                         <tr>
-                            <th>a</th>
                             <th>Nome</th>
                             <th class="text-center">Último serviço</th>
                             <th class="text-center">Último agendamento</th>
@@ -54,7 +53,7 @@
                     <tbody>
                         <tr th:each="p, iterStat: ${page.content}" th:classappend="${iterStat.index % 2 == 0 ? 'bg-gray' : ''}">
                             <td th:text="${p.name}"></td>
-                            <!-- <td class="text-center" th:text="${p.lastWork.name}"></td> -->
+                            <!-- <td class="text-center" th:text="${schedules.work.name}"></td> -->
                             <td class="text-center"></td>
 
 
