@@ -53,7 +53,6 @@
                     </thead>
                     <tbody>
                         <tr th:each="p, iterStat: ${page.content}" th:classappend="${iterStat.index % 2 == 0 ? 'bg-gray' : ''}">
-                            <td th:text="${iterStat.index}">a</td>
                             <td th:text="${p.name}"></td>
                             <!-- <td class="text-center" th:text="${p.lastWork.name}"></td> -->
                             <td class="text-center"></td>
