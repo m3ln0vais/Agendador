@@ -39,6 +39,6 @@ public class ClientAppController {
         }
         
         clientService.save(client);
-        return "redirect:/mainClient?id=" + client.getId();
+        return "redirect:/scheduling-app?id=" + client.getId();
     }
 }

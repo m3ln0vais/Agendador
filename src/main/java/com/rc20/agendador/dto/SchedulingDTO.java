@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class SchedulingDTO {
 
-    private Long id;
+    private Long id; 
     private Long client;
     private Long work;
     private Long employee;

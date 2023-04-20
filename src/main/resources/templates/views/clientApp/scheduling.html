@@ -35,7 +35,9 @@
                     </div>
                     <div class="col-3 d-flex align-items-center">
                         <div class="btn-group">
-                            <a class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-sm btn-warning" 
+                                th:href="${'/scheduling-app/schedule?id=' + s.id}">
+                                <i class="fa fa-pencil"></i></a>
                             <a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                         </div>
                     </div>
