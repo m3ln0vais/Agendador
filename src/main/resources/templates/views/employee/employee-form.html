@@ -36,7 +36,7 @@
                             <input type="hidden" th:field="*{id}">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label class="form-label">Nome do Profissional</label>
+                                    <label class="form-label">Nome</label>
                                     <input type="text" class="form-control" required th:field="*{person.name}"
                                         th:classappend="${#fields.hasErrors('person.name')}? 'is-invalid'">
                                     <div class="text-danger" th:if="${#fields.hasErrors('person.name')}"
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" required th:field="*{person.contact.id}">
+                                    <input type="email" class="form-control" required th:field="*{person.contact.email}">
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-md-3">
@@ -69,27 +69,27 @@
                                     <input type="hidden" th:field="*{person.address.id}">
 
                                     <label class="form-label">CEP</label>
-                                    <input type="text" class="form-control" required th:field="*{person.address.cep}">
+                                    <input type="text" id="cep" class="form-control" required th:field="*{person.address.cep}">
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label">Rua</label>
-                                    <input type="text" class="form-control" th:field="*{person.address.road}">
+                                    <input type="text" id="rua" class="form-control" th:field="*{person.address.road}">
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label">Bairro</label>
-                                    <input type="text" class="form-control" th:field="*{person.address.district}">
+                                    <input type="text" id="bairro" class="form-control" th:field="*{person.address.district}">
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-md-2">
                                     <label class="form-label">Estado</label>
-                                    <input type="text" class="form-control" th:field="*{person.address.state}">
+                                    <input type="text" id="uf" class="form-control" th:field="*{person.address.state}">
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-md-2">
                                     <label class="form-label">Nº</label>
-                                    <input type="text" class="form-control" required
+                                    <input type="text" id="numero" class="form-control" required
                                         th:field="*{person.address.number}">
                                     <div class="invalid-feedback"></div>
                                 </div>

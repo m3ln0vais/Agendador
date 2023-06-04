@@ -37,31 +37,31 @@
                         <input type="hidden" th:field="*{address.id}">
                         <div class="col-6">
                             <label class="form-label">CEP</label>
-                            <input type="text" class="form-control" required th:field="*{address.cep}">
+                            <input type="text" id="cep" class="form-control" required th:field="*{address.cep}">
                             <div class="text-danger"></div>
                         </div>
                         <div class="col-6">
                             <label class="form-label">N°</label>
-                            <input type="text" class="form-control" required th:field="*{address.number}">
+                            <input type="text" id="numero" class="form-control" required th:field="*{address.number}">
                             <div class="text-danger"></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <label class="form-label">Rua</label>
-                    <input type="text" class="form-control" required th:field="*{address.road}">
+                    <input type="text" id="rua" class="form-control" required th:field="*{address.road}">
                     <div class="text-danger"></div>
                 </div>
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-9">
                             <label class="form-label">Bairro</label>
-                            <input type="text" class="form-control" required th:field="*{address.district}">
+                            <input type="text" id="bairro" class="form-control" required th:field="*{address.district}">
                             <div class="text-danger"></div>
                         </div>
                         <div class="col-3">
                             <label class="form-label">Estado</label>
-                            <input type="text" maxlength="2" class="form-control" required 
+                            <input type="text" id="uf" maxlength="2" class="form-control" required 
                             th:field="*{address.state}">
                             <div class="text-danger"></div>
                         </div>

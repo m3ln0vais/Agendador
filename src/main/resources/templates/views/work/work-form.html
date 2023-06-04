@@ -29,14 +29,14 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Preço de Venda</label>
-                        <input type="number" class="form-control" required th:field="*{salePrice}"
+                        <input type="text" class="form-control money" required th:field="*{salePrice}"
                             th:classappend="${#fields.hasErrors('salePrice')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('salePrice')}" th:errors="*{salePrice}">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Preço de Custo</label>
-                        <input type="number" class="form-control" required th:field="*{costPrice}"
+                        <input type="text" class="form-control money" required th:field="*{costPrice}"
                             th:classappend="${#fields.hasErrors('costPrice')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('costPrice')}" th:errors="*{costPrice}">
                         </div>
@@ -44,21 +44,21 @@
 
                     <div class="col-md-4">
                         <label class="form-label">Tempo Inicial</label>
-                        <input type="number" class="form-control" required placeholder="em minutos"
+                        <input type="text" class="form-control time" required placeholder="em minutos"
                             th:field="*{timeStart}" th:classappend="${#fields.hasErrors('timeStart')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('timeStart')}" th:errors="*{timeStart}">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Intervalo</label>
-                        <input type="number" class="form-control" placeholder="em minutos" th:field="*{timeInterval}"
+                        <input type="text" class="form-control time" placeholder="em minutos" th:field="*{timeInterval}"
                             th:classappend="${#fields.hasErrors('timeInterval')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('timeInterval')}"
                             th:errors="*{timeInterval}"></div>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Tempo Final</label>
-                        <input type="number" class="form-control" placeholder="em minutos" th:field="*{timeFinish}"
+                        <input type="text" class="form-control time" placeholder="em minutos" th:field="*{timeFinish}"
                             th:classappend="${#fields.hasErrors('timeFinish')}? 'is-invalid'">
                         <div class="text-danger" th:if="${#fields.hasErrors('timeFinish')}" th:errors="*{timeFinish}">
                         </div>
@@ -75,3 +75,10 @@
 </main><!-- End #main -->
 
 <div th:replace="~{fragments/footers}"></div>
+
+<script>
+    $(() => {
+        $('.money').mask('000.000.000.000.000,00', {reverse: true});
+        $('.time').mask('00:00:00');
+    })
+</script>

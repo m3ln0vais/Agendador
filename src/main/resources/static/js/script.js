@@ -1,28 +1,24 @@
-// var changeTheme = document.querySelector("#changeTheme")
+$(() => {
+    $('#cep').keypress((e) => {
+        if (e.which == '13') {
+            e.preventDefault();
+            verificaCEP()
+        }
+    })
+})
 
-// function darkMode() {
-//     document.body.classList.toggle("darkBody")
-//     document.querySelector("#header").classList.toggle("darkHeader")
-//     document.querySelector("#sidebar").classList.toggle("darkSidebar")
-    
-// }
+function verificaCEP() {
+    var cep = $('#cep').val()
+    var url = `https://viacep.com.br/ws/${cep}/json/`
 
-// function loadTheme() {
-//     var darkTheme = localStorage.getItem("dark")
-//     if (darkTheme) {darkMode()}
-// }
+    fetch(url).then(function (response) {
+        response.json().then(function (data) {
+            console.log(data);
+            $('#rua').val(`${data.logradouro}`)
+            $('#bairro').val(`${data.bairro}`)
+            $('#uf').val(`${data.uf}`)
 
-// loadTheme()
-
-// changeTheme.addEventListener("click", () => {
-//     darkMode()
-
-//     localStorage.removeItem("dark")
-
-//     if (document.body.classList.contains("darkBody")
-//         && document.querySelector("#header").classList.contains("darkHeader") 
-//         && document.querySelector("#sidebar").classList.contains("darkSidebar")) {
-            
-//         localStorage.setItem("dark", 1)
-//     }
-// }) 
+            $('#numero').focus()
+        })
+    })
+}

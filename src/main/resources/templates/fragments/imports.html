@@ -46,20 +46,12 @@
     <script th:src="@{/js/tinymce.min.js}"></script>
     <script th:src="@{/js/validate.js}"></script>
     <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/jquery.mask.js}"></script>
 
     <!-- Template Main JS File -->
     <script th:src="@{/js/main.js}"></script>
+    <!-- <script src="/static/js/script.js"></script> -->
     <script>
-//        var theme = localStorage.getItem('theme');
-//        const headElement = document.getElementsByTagName('head')[0];
-//
-//        const link = document.createElement('link');
-//
-//        link.rel = 'stylesheet';
-//        link.type = 'text/css';
-//        link.href = '/css/themes/' + theme + '.css';
-//
-//        headElement.appendChild(link);
 
         $(() => {
             loadTheme()
@@ -88,12 +80,12 @@
                 $(".card").toggleClass("barbeCard")
                 $("span, a, i, td, th, p, h1, h2, h3, h4, h5").toggleClass("barbeText")
             }
-            
-            function  manicureMode(){
+
+            function manicureMode() {
                 $("body").toggleClass("manicureBody")
                 $("header").toggleClass("manicureHeader")
                 $("aside").toggleClass("manicureSidebar")
-                 $("span, a, i, td, th, p, h1, h2, h3, h4, h5").toggleClass("manicureText")
+                $("span, a, i, td, th, p, h1, h2, h3, h4, h5").toggleClass("manicureText")
             }
         })
     </script>
