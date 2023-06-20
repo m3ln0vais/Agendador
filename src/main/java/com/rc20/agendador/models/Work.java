@@ -25,8 +25,8 @@ public class Work {
     private Long id;
     @Size(min = 3, message = "O minimo é de 3 letras.")
     private String name;
-    private BigDecimal salePrice;
-    private BigDecimal costPrice;
+    private String salePrice;
+    private String costPrice;
     private Integer timeStart;
     private Integer timeInterval;
     private Integer timeFinish;

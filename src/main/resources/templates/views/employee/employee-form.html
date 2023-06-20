@@ -54,7 +54,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" required th:field="*{person.contact.email}">
+                                    <input type="email" class="form-control" required
+                                        th:field="*{person.contact.email}">
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-md-3">
@@ -69,7 +70,8 @@
                                     <input type="hidden" th:field="*{person.address.id}">
 
                                     <label class="form-label">CEP</label>
-                                    <input type="text" id="cep" class="form-control" required th:field="*{person.address.cep}">
+                                    <input type="text" id="cep" class="form-control cep" required
+                                        th:field="*{person.address.cep}">
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-md-3">
@@ -79,7 +81,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label">Bairro</label>
-                                    <input type="text" id="bairro" class="form-control" th:field="*{person.address.district}">
+                                    <input type="text" id="bairro" class="form-control"
+                                        th:field="*{person.address.district}">
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-md-2">
@@ -150,51 +153,51 @@
                                         class="d-flex justify-content-between bg-secondary p-2 text-dark bg-opacity-10 mt-3 rounded">
                                         <span style="display: flex !important; align-items: center !important;">
                                             Dias da Semana (<span>5</span>)</span>
-                                        <a class="text-decoration-none" data-bs-toggle="collapse"
-                                            href="#collapseEdit" aria-current="page">
+                                        <a class="text-decoration-none" data-bs-toggle="collapse" href="#collapseEdit"
+                                            aria-current="page">
                                             Editar</a>
                                     </div>
-                                   <div class="collapse" id="collapseEdit">
+                                    <div class="collapse" id="collapseEdit">
+                                        <div class="list-group">
+                                            <label class="list-group-item">
+                                                <input class="form-check-input me-1" value="" type="checkbox"
+                                                    th:field="*{daysWeek.sunday}"> Domingo
+                                            </label>
+                                        </div>
                                         <div class="list-group">
                                             <label class="list-group-item">
                                                 <input class="form-check-input me-1" value=""
-                                                    type="checkbox" th:field="*{daysWeek.sunday}"> Domingo
+                                                    th:field="*{daysWeek.monday}" type="checkbox"> Segunda-Feira
                                             </label>
                                         </div>
                                         <div class="list-group">
                                             <label class="list-group-item">
-                                                <input class="form-check-input me-1"  value="" th:field="*{daysWeek.monday}"
-                                                    type="checkbox"> Segunda-Feira
+                                                <input class="form-check-input me-1" value=""
+                                                    th:field="*{daysWeek.tuesday}" type="checkbox"> Terça-Feira
                                             </label>
                                         </div>
                                         <div class="list-group">
                                             <label class="list-group-item">
-                                                <input class="form-check-input me-1"  value="" th:field="*{daysWeek.tuesday}"
-                                                    type="checkbox"> Terça-Feira
+                                                <input class="form-check-input me-1" value=""
+                                                    th:field="*{daysWeek.wednesday}" type="checkbox"> Quarta-Feira
                                             </label>
                                         </div>
                                         <div class="list-group">
                                             <label class="list-group-item">
-                                                <input class="form-check-input me-1"  value="" th:field="*{daysWeek.wednesday}"
-                                                    type="checkbox"> Quarta-Feira
+                                                <input class="form-check-input me-1" value=""
+                                                    th:field="*{daysWeek.thursday}" type="checkbox"> Quinta-Feira
                                             </label>
                                         </div>
                                         <div class="list-group">
                                             <label class="list-group-item">
-                                                <input class="form-check-input me-1"  value="" th:field="*{daysWeek.thursday}"
-                                                    type="checkbox"> Quinta-Feira
+                                                <input class="form-check-input me-1" value=""
+                                                    th:field="*{daysWeek.friday}" type="checkbox"> Sexta-Feira
                                             </label>
                                         </div>
                                         <div class="list-group">
                                             <label class="list-group-item">
-                                                <input class="form-check-input me-1"  value="" th:field="*{daysWeek.friday}"
-                                                    type="checkbox"> Sexta-Feira
-                                            </label>
-                                        </div>
-                                        <div class="list-group">
-                                            <label class="list-group-item">
-                                                <input class="form-check-input me-1"  value="" th:field="*{daysWeek.saturday}"
-                                                    type="checkbox"> Sabado
+                                                <input class="form-check-input me-1" value=""
+                                                    th:field="*{daysWeek.saturday}" type="checkbox"> Sabado
                                             </label>
                                         </div>
                                     </div>
@@ -206,9 +209,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </form><!-- End Custom Styled Validation -->
 
             </div>

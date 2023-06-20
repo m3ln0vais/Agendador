@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.rc20.agendador.models;
 
 import jakarta.persistence.Entity;
@@ -24,7 +20,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer cep;
+    private String cep;
     @Size(min = 3, message = "O minimo é de 3 letras.")
     private String road;
     @Size(min = 3, message = "O minimo é de 3 letras.")
